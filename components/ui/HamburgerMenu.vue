@@ -243,9 +243,8 @@ export default {}
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   position: absolute;
-  overflow: hidden;
   z-index: 100;
   background-color: $black;
   color: $white;
@@ -259,7 +258,7 @@ export default {}
 .menu-top {
   display: flex;
   justify-content: flex-end;
-  margin: 2.5rem 4.1rem;
+  margin: 2.5rem 3rem;
 }
 
 .menu-body {
@@ -267,17 +266,18 @@ export default {}
   height: 80%;
   margin: auto;
   display: flex;
+  flex-direction: column;
 }
 
 .body-column {
-  width: 33%;
-  margin: 3rem auto;
+  width: 100%;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .menu-box {
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
 }
@@ -308,5 +308,42 @@ export default {}
 span.menu-title {
   text-transform: capitalize;
   font-size: 1.5rem;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+  .menu-overlay {
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .menu-top {
+    margin: 2.5rem 4.1rem;
+  }
+
+  .menu-body {
+    flex-direction: row;
+  }
+
+  .body-column {
+    width: 33%;
+    margin: 3rem auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .menu-box {
+    margin-bottom: 0;
+  }
 }
 </style>

@@ -1,10 +1,12 @@
 <template>
   <nav>
-    <nuxt-link to="/">Domů</nuxt-link>
-    <nuxt-link to="/club">O klubu</nuxt-link>
-    <nuxt-link to="/club/start">Chci střílet z luku</nuxt-link>
-    <nuxt-link to="/partners">Partneři</nuxt-link>
-    <nuxt-link to="/contact">Kontakty</nuxt-link>
+    <div class="nav-desktop">
+      <nuxt-link to="/">Domů</nuxt-link>
+      <nuxt-link to="/club">O klubu</nuxt-link>
+      <nuxt-link to="/club/start">Chci střílet z luku</nuxt-link>
+      <nuxt-link to="/partners">Partneři</nuxt-link>
+      <nuxt-link to="/contact">Kontakty</nuxt-link>
+    </div>
     <button class="nav-icon" @click="showMenu">
       <svg
         width="27"
@@ -47,23 +49,42 @@ nav {
   align-items: center;
 }
 
-a {
-  text-decoration: none;
-  color: $black;
-  text-transform: uppercase;
-  font-size: 1.15rem;
-  margin: 0 1.1rem;
+.nav-desktop {
+  display: none;
 }
 
-button {
-  margin: 0 1.1rem;
+@media (min-width: 576px) {
 }
 
-.nav-icon {
-  margin-left: 4rem;
+@media (min-width: 768px) {
 }
 
-.nuxt-link-exact-active {
-  color: $green;
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+  .nav-desktop {
+    display: inline;
+  }
+
+  a {
+    text-decoration: none;
+    color: $black;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    margin: 0 1.1rem;
+  }
+
+  button {
+    margin: 0 1.1rem;
+  }
+
+  .nav-icon {
+    margin-left: 4rem;
+  }
+
+  .nuxt-link-exact-active {
+    color: $green;
+  }
 }
 </style>

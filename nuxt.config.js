@@ -21,7 +21,6 @@ export default {
   css: [
     '~/assets/css/reset.css',
     '~/assets/css/main.css',
-    '~/assets/scss/main.scss',
     '~/assets/scss/colors.scss',
   ],
 
@@ -38,7 +37,7 @@ export default {
   modules: ['@nuxtjs/style-resources'],
 
   styleResources: {
-    scss: ['./assets/scss/*.scss'],
+    scss: ['~/assets/scss/*.scss'],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

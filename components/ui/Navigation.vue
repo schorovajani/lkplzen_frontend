@@ -2,10 +2,10 @@
   <nav>
     <nuxt-link to="/">Domů</nuxt-link>
     <nuxt-link to="/club">O klubu</nuxt-link>
-    <nuxt-link to="/start">Chci střílet z luku</nuxt-link>
+    <nuxt-link to="/club/start">Chci střílet z luku</nuxt-link>
     <nuxt-link to="/partners">Partneři</nuxt-link>
     <nuxt-link to="/contact">Kontakty</nuxt-link>
-    <button class="nav-icon">
+    <button class="nav-icon" @click="showMenu">
       <svg
         width="27"
         height="25"
@@ -19,11 +19,26 @@
         />
       </svg>
     </button>
+    <UiHamburgerMenu v-if="show" @hide="hideMenu" />
   </nav>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      show: false,
+    }
+  },
+  methods: {
+    showMenu() {
+      this.show = true
+    },
+    hideMenu() {
+      this.show = false
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -41,8 +56,6 @@ a {
 }
 
 button {
-  border: none;
-  background: none;
   margin: 0 1.1rem;
 }
 

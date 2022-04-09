@@ -1,10 +1,10 @@
 <template>
   <nav>
-    <nuxt-link tag="button" to="/">Domů</nuxt-link>
-    <nuxt-link tag="button" to="/club">O klubu</nuxt-link>
-    <nuxt-link tag="button" to="/start">Chci střílet z luku</nuxt-link>
-    <nuxt-link tag="button" to="/partners">Partneři</nuxt-link>
-    <nuxt-link tag="button" to="/contact">Kontakty</nuxt-link>
+    <nuxt-link to="/">Domů</nuxt-link>
+    <nuxt-link to="/club">O klubu</nuxt-link>
+    <nuxt-link to="/start">Chci střílet z luku</nuxt-link>
+    <nuxt-link to="/partners">Partneři</nuxt-link>
+    <nuxt-link to="/contact">Kontakty</nuxt-link>
     <button class="nav-icon">
       <svg
         width="27"
@@ -26,21 +26,31 @@
 export default {}
 </script>
 
-<style>
+<style lang="scss" scoped>
 nav {
   display: flex;
   align-items: center;
 }
 
-button {
-  border: none;
-  background: none;
+a {
+  text-decoration: none;
+  color: $black;
   text-transform: uppercase;
   font-size: 1.15rem;
   margin: 0 1.1rem;
 }
 
+button {
+  border: none;
+  background: none;
+  margin: 0 1.1rem;
+}
+
 .nav-icon {
   margin-left: 4rem;
+}
+
+.nuxt-link-exact-active {
+  color: $green;
 }
 </style>

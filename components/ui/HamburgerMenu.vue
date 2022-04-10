@@ -73,7 +73,9 @@
           >
             Historie a osobnosti
           </nuxt-link>
-          <a class="menu-item" href="">Fotogalerie</a>
+          <a class="menu-item" href="" target="_blank" rel="noopener noreferrer"
+            >Fotogalerie</a
+          >
         </div>
         <div class="menu-box">
           <nuxt-link
@@ -200,7 +202,11 @@
         <div class="menu-box">
           <span class="menu-title">Sledujte nás</span>
           <div class="menu-social">
-            <a href="https://www.facebook.com/lkplzen/">
+            <a
+              href="https://www.facebook.com/lkplzen/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg
                 width="44"
                 height="44"
@@ -213,7 +219,11 @@
                   fill="white"
                 /></svg
             ></a>
-            <a href="https://www.instagram.com/lkplzen/">
+            <a
+              href="https://www.instagram.com/lkplzen/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg
                 width="44"
                 height="44"

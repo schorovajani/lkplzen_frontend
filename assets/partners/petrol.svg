@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg class="logo-with-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416.98 202.81">
+  <defs>
+    <style>
+    .logo-color{fill:#2d782a;}
+    .logo-company-name,.logo-company-description{isolation:isolate;}
+    .logo-company-name{font-size:128.75px;fill:#fff;font-family:Calibri-Bold, Calibri;font-weight:700;letter-spacing:-0.04em;}
+    .logo-company-description{font-size:42.09px;fill:#939598;font-family:Calibri, Calibri;letter-spacing:-0.025em;}
+    </style>
+  </defs>
+  <path class="logo-color" d="M30.5,0,0,98.4l17.2,5.3C31.1,58.8,79.1,33.9,124.5,47.9l5.3-17.2-.5-.1L30.9.1"/>
+  <path class="logo-color" d="M99.3,129.2l14.8-47.8a49.88,49.88,0,0,0-62.5,33Z"/>
+  <text class="logo-company-name" textLength="300" transform="translate(121.36 154.18)">petrol</text>
+  <text class="logo-company-description" textLength="260" transform="translate(154.9 189.65)">pohonné hmoty</text>
+</svg>

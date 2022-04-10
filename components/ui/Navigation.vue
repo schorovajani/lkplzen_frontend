@@ -21,7 +21,9 @@
         />
       </svg>
     </button>
-    <UiHamburgerMenu v-if="show" @hide="hideMenu" />
+    <transition name="fade">
+      <UiHamburgerMenu v-if="show" @hide="hideMenu" />
+    </transition>
   </nav>
 </template>
 
@@ -44,6 +46,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease;
+}
+.fade-enter,
+.fade-leave-to {
+  transform: translateX(80vw);
+  opacity: 0;
+}
+
 nav {
   display: flex;
   align-items: center;

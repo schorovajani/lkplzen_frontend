@@ -10,10 +10,13 @@
 
 <style>
 header {
-  margin: 1.5rem 3rem;
+  padding: 1.5rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 50;
+  position: absolute;
+  width: 100%;
 }
 
 .logo {

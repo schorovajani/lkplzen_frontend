@@ -253,11 +253,12 @@ export default {}
   top: 0;
   left: 0;
   width: 100vw;
-  height: 200vh;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   z-index: 100;
   background-color: $black;
   color: $white;
+  overflow-y: auto;
 
   a {
     text-decoration: none;
@@ -332,11 +333,10 @@ span.menu-title {
 @media (min-width: 1200px) {
   .menu-overlay {
     overflow: hidden;
-    height: 100vh;
   }
 
   .menu-top {
-    margin: 2.5rem 4.1rem;
+    margin: 2.5rem 4rem;
   }
 
   .menu-body {

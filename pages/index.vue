@@ -21,6 +21,31 @@
         </a>
       </div>
     </section>
+    <div class="content">
+      <section class="two-col club">
+        <div class="col-text">
+          <h3>Klub 1. LK Plzeň</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam
+            feugiat, turpis at pulvinar vulputate, erat libero tristique tellus,
+            nec bibendum odio risus sit amet ante. Morbi imperdiet, mauris ac
+            auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus
+            in lacus. Vestibulum erat nulla, ullamcorper nec, rutrum non,
+            nonummy ac, erat.
+          </p>
+          <nuxt-link tag="button" to="/club">Více o klubu</nuxt-link>
+          <p>
+            Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel
+            sapien. Nulla turpis magna, cursus sit amet, suscipit a, interdum
+            id, felis. Etiam commodo dui eget wisi. Pellentesque sapien.
+          </p>
+          <nuxt-link tag="button" to="/club/start">Staň se členem</nuxt-link>
+        </div>
+        <div class="col-image">
+          <img src="~/assets/club-photo.jpg" alt="club-photo" />
+        </div>
+      </section>
+    </div>
   </main>
 </template>
 
@@ -29,21 +54,23 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+// hero
 .hero {
   position: relative;
-  height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
 }
 
 .hero-text {
   position: absolute;
   top: 70%;
-  left: 5%;
+  left: 0;
+  margin: 2rem;
   text-align: center;
   color: $white;
   text-shadow: 3px 3px 6px #111111;
   h2 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   a {
     color: $white;
@@ -59,6 +86,13 @@ export default {}
   * {
     margin: 1rem 0.3rem;
   }
+}
+
+//content
+
+.content {
+  width: 90vw;
+  margin: auto;
 }
 
 @media (min-width: 576px) {
@@ -77,6 +111,15 @@ export default {}
 @media (min-width: 992px) {
   .hero-text {
     top: 60%;
+    left: 5%;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .content {
+    width: 70vw;
   }
 }
 

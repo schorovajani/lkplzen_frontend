@@ -262,7 +262,7 @@ h3 {
     color: $white;
   }
   a:hover {
-    color: $green;
+    color: $primary;
   }
 }
 

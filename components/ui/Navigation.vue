@@ -88,6 +88,7 @@ nav {
   }
 
   button {
+    background: none;
     margin: 0 1.1rem;
   }
 
@@ -96,7 +97,7 @@ nav {
   }
 
   .nuxt-link-exact-active {
-    color: $green;
+    color: $secondary;
   }
 }
 </style>

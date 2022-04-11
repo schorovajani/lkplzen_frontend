@@ -252,7 +252,7 @@ export default {}
 .menu-overlay {
   top: 0;
   left: 0;
-  width: 100vw;
+  width: calc(100vw - (100vw - 100%));
   height: 100vh;
   position: fixed;
   z-index: 100;
@@ -336,7 +336,7 @@ span.menu-title {
   }
 
   .menu-top {
-    margin: 2.5rem 4rem;
+    margin: 2.5rem 4.1rem;
   }
 
   .menu-body {

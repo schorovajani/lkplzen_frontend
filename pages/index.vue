@@ -21,9 +21,9 @@
         </a>
       </div>
     </section>
-    <div class="content">
-      <section class="two-col club">
-        <div class="col-text">
+    <section id="home-club">
+      <div class="page-cols">
+        <article class="column">
           <h3>Klub 1. LK Plzeň</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam
@@ -40,12 +40,65 @@
             id, felis. Etiam commodo dui eget wisi. Pellentesque sapien.
           </p>
           <nuxt-link tag="button" to="/club/start">Staň se členem</nuxt-link>
+        </article>
+        <div class="column">
+          <img
+            class="col-image"
+            src="~/assets/club-photo.jpg"
+            alt="club-photo"
+          />
         </div>
-        <div class="col-image">
-          <img src="~/assets/club-photo.jpg" alt="club-photo" />
+      </div>
+    </section>
+    <section id="home-archery">
+      <div class="page-cols">
+        <div class="column">
+          <img
+            class="col-image"
+            src="~/assets/home-archery.jpg"
+            alt="archery"
+          />
         </div>
-      </section>
-    </div>
+        <article class="column">
+          <h3>Lukostřelba</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam
+            feugiat, turpis at pulvinar vulputate, erat libero tristique tellus,
+            nec bibendum odio risus sit amet ante. Morbi imperdiet, mauris ac
+            auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus
+            in lacus. Vestibulum erat nulla, ullamcorper nec, rutrum non,
+            nonummy ac, erat.
+          </p>
+          <div class="bow-types">
+            <div class="bow recurve-bow">
+              <img
+                class="rounded-img"
+                src="~/assets/recurve-bow-thumb.jpg"
+                alt="recurve-bow"
+              />
+              <span>Reflexní luk</span>
+            </div>
+            <div class="bow bare-bow">
+              <img
+                class="rounded-img"
+                src="~/assets/bare-bow-thumb.jpg"
+                alt="bare-bow"
+              />
+              <span>Holý luk</span>
+            </div>
+            <div class="bow compound-bow">
+              <img
+                class="rounded-img"
+                src="~/assets/compound-bow-thumb.jpg"
+                alt="recurve-bow"
+              />
+              <span>Kladkový luk</span>
+            </div>
+          </div>
+          <nuxt-link tag="button" to="/archery">Více o lukostřelbě</nuxt-link>
+        </article>
+      </div>
+    </section>
   </main>
 </template>
 
@@ -88,14 +141,75 @@ export default {}
   }
 }
 
-//content
+//club and archery
 
-.content {
-  width: 90vw;
+.page-cols {
+  width: 85%;
   margin: auto;
+  padding: 6rem 0;
+  display: block;
+
+  article {
+    display: flex;
+    flex-direction: column;
+    button {
+      align-self: center;
+      margin: 1.5rem 0 2rem 0;
+    }
+  }
+}
+
+.column {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.col-image {
+  width: 100%;
+  height: auto;
+}
+
+#home-archery {
+  background-color: $grey;
+  color: $white;
+}
+
+.bow-types {
+  margin: 3rem 0rem 2rem 0rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span {
+    text-align: center;
+    margin-top: 0.6rem;
+  }
+}
+
+.rounded-img {
+  width: 4rem;
+  border-radius: 50%;
 }
 
 @media (min-width: 576px) {
+  .page-cols {
+    article {
+      padding: 0 2rem;
+    }
+  }
+
+  .bow-types {
+    margin: 3rem 2rem 2rem 2rem;
+  }
+
+  .rounded-img {
+    width: 6rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -105,6 +219,16 @@ export default {}
 
   .hero-text {
     top: 40%;
+  }
+
+  .page-cols {
+    article {
+      padding: 0 4rem;
+    }
+  }
+
+  .bow-types {
+    margin: 3rem 0rem 2rem 0rem;
   }
 }
 
@@ -119,10 +243,39 @@ export default {}
   }
 
   .content {
-    width: 70vw;
+    width: 80vw;
+  }
+
+  .page-cols {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    article {
+      padding: 0;
+      button {
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .column {
+    width: 45%;
+  }
+  .col-image {
+    box-shadow: 4rem 4rem #999999;
   }
 }
 
 @media (min-width: 1200px) {
+  .page-cols {
+    article {
+      padding: 0 3rem;
+    }
+  }
+
+  .bow-types {
+    margin: 3rem 2rem 2rem 2rem;
+  }
 }
 </style>

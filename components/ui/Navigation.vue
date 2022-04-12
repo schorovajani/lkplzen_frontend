@@ -65,6 +65,10 @@ nav {
   display: none;
 }
 
+button {
+  all: unset;
+}
+
 @media (min-width: 576px) {
 }
 
@@ -88,7 +92,6 @@ nav {
   }
 
   button {
-    background: none;
     margin: 0 1.1rem;
   }
 

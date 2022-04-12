@@ -270,6 +270,10 @@ export default {}
   display: flex;
   justify-content: flex-end;
   margin: 2.5rem 3rem;
+
+  button {
+    all: unset;
+  }
 }
 
 .menu-body {
@@ -345,7 +349,7 @@ span.menu-title {
 
   .body-column {
     width: 33%;
-    margin: 3rem auto;
+    margin: 3vh auto;
     padding: 0;
     display: flex;
     flex-direction: column;

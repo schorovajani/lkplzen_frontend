@@ -1,7 +1,7 @@
 <template>
   <main>
     <section class="hero">
-      <img src="~/assets/theme-photo.jpg" alt="theme-photo" />
+      <img src="~/assets/photos/theme-photo.jpg" alt="theme-photo" />
       <div class="hero-text">
         <h2>Lukostřelecký klub sídlící v Plzni<br />ve Štruncových sadech</h2>
         <a class="hero-more" href="#home-club">
@@ -44,7 +44,7 @@
         <div class="column">
           <img
             class="col-image"
-            src="~/assets/club-photo.jpg"
+            src="~/assets/photos/club-photo.jpg"
             alt="club-photo"
           />
         </div>
@@ -55,7 +55,7 @@
         <div class="column">
           <img
             class="col-image"
-            src="~/assets/home-archery.jpg"
+            src="~/assets/photos/home-archery.jpg"
             alt="archery"
           />
         </div>
@@ -73,7 +73,7 @@
             <div class="bow recurve-bow">
               <img
                 class="rounded-img"
-                src="~/assets/recurve-bow-thumb.jpg"
+                src="~/assets/photos/recurve-bow-thumb.jpg"
                 alt="recurve-bow"
               />
               <span>Reflexní luk</span>
@@ -81,7 +81,7 @@
             <div class="bow bare-bow">
               <img
                 class="rounded-img"
-                src="~/assets/bare-bow-thumb.jpg"
+                src="~/assets/photos/bare-bow-thumb.jpg"
                 alt="bare-bow"
               />
               <span>Holý luk</span>
@@ -89,7 +89,7 @@
             <div class="bow compound-bow">
               <img
                 class="rounded-img"
-                src="~/assets/compound-bow-thumb.jpg"
+                src="~/assets/photos/compound-bow-thumb.jpg"
                 alt="recurve-bow"
               />
               <span>Kladkový luk</span>
@@ -97,6 +97,38 @@
           </div>
           <nuxt-link tag="button" to="/archery">Více o lukostřelbě</nuxt-link>
         </article>
+      </div>
+    </section>
+    <section id="people">
+      <div class="people-active">
+        <Profile
+          :profile="{
+            name: 'Helena Nováková',
+            clubRole: 'bývalá šéftrenérka',
+            about:
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam feugiat, turpis at pulvinar vulputate, eratlibero tristique tellus, nec bibendum odio risus sit amet ante. Morbiimperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, etsollicitudin sem purus in lacus. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat.',
+          }"
+        />
+      </div>
+      <div class="people-active">
+        <Profile
+          :profile="{
+            name: 'Helena Nováková',
+            clubRole: 'bývalá šéftrenérka',
+            about:
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam feugiat, turpis at pulvinar vulputate, eratlibero tristique tellus, nec bibendum odio risus sit amet ante. Morbiimperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, etsollicitudin sem purus in lacus. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat.',
+          }"
+        />
+      </div>
+      <div class="people-active">
+        <Profile
+          :profile="{
+            name: 'Helena Nováková',
+            clubRole: 'bývalá šéftrenérka',
+            about:
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam feugiat, turpis at pulvinar vulputate, eratlibero tristique tellus, nec bibendum odio risus sit amet ante. Morbiimperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, etsollicitudin sem purus in lacus. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat.',
+          }"
+        />
       </div>
     </section>
   </main>
@@ -194,6 +226,18 @@ export default {}
 .rounded-img {
   width: 4rem;
   border-radius: 50%;
+}
+
+//people
+
+#people {
+  padding: 6rem 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.people-active {
+  width: 30rem;
 }
 
 @media (min-width: 576px) {

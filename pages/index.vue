@@ -33,13 +33,17 @@
             in lacus. Vestibulum erat nulla, ullamcorper nec, rutrum non,
             nonummy ac, erat.
           </p>
-          <nuxt-link tag="button" to="/club">Více o klubu</nuxt-link>
+          <nuxt-link class="page-button" tag="button" to="/club"
+            >Více o klubu</nuxt-link
+          >
           <p>
             Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel
             sapien. Nulla turpis magna, cursus sit amet, suscipit a, interdum
             id, felis. Etiam commodo dui eget wisi. Pellentesque sapien.
           </p>
-          <nuxt-link tag="button" to="/club/start">Staň se členem</nuxt-link>
+          <nuxt-link class="page-button" tag="button" to="/club/start"
+            >Staň se členem</nuxt-link
+          >
         </article>
         <div class="column">
           <img
@@ -95,47 +99,76 @@
               <span>Kladkový luk</span>
             </div>
           </div>
-          <nuxt-link tag="button" to="/archery">Více o lukostřelbě</nuxt-link>
+          <nuxt-link class="page-button" tag="button" to="/archery"
+            >Více o lukostřelbě</nuxt-link
+          >
         </article>
       </div>
     </section>
     <section id="people">
-      <div class="people-active">
-        <Profile
-          :profile="{
-            name: 'Helena Nováková',
-            clubRole: 'bývalá šéftrenérka',
-            about:
-              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam feugiat, turpis at pulvinar vulputate, eratlibero tristique tellus, nec bibendum odio risus sit amet ante. Morbiimperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, etsollicitudin sem purus in lacus. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat.',
-          }"
-        />
-      </div>
-      <div class="people-active">
-        <Profile
-          :profile="{
-            name: 'Helena Nováková',
-            clubRole: 'bývalá šéftrenérka',
-            about:
-              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam feugiat, turpis at pulvinar vulputate, eratlibero tristique tellus, nec bibendum odio risus sit amet ante. Morbiimperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, etsollicitudin sem purus in lacus. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat.',
-          }"
-        />
-      </div>
-      <div class="people-active">
-        <Profile
-          :profile="{
-            name: 'Helena Nováková',
-            clubRole: 'bývalá šéftrenérka',
-            about:
-              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam feugiat, turpis at pulvinar vulputate, eratlibero tristique tellus, nec bibendum odio risus sit amet ante. Morbiimperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, etsollicitudin sem purus in lacus. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat.',
-          }"
-        />
-      </div>
+      <h3>Lidé v klubu</h3>
+      <HomepageSlider :profiles="profiles" />
     </section>
   </main>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      profiles: [
+        {
+          name: 'Tereza Brandová 1',
+          clubRole: 'trenér',
+          about:
+            'Příležitost dělat trenéra jsem dostala krátce poté, co jsem začala střílet a jsem za to velice vděčná. Mimo střelnici momentálně studuji na Západočeské univerzitě v Plzni a pracuji v masérském salónu. Kromě střelců z našeho klubu se začínám také věnovat střelcům hendikepovaným.',
+          profilePhoto: 'recurve-bow.jpg',
+          slug: 'tereza-brandova',
+        },
+        {
+          name: 'Jan Šípek 2',
+          clubRole: 'šéftrenér',
+          about:
+            'Dělat šéftrenéra, je sice náročná, ale zajímavá a rozmanitá práce. Mimo střelnici rád hraji deskové hry a čtu fantasy knihy. Volný čas věnuji své rodině (mám dva syny).',
+          profilePhoto: 'compound-bow.jpg',
+          slug: 'jan-sipek',
+        },
+        {
+          name: 'Tereza Brandová 3',
+          clubRole: 'trenér',
+          about:
+            'Příležitost dělat trenéra jsem dostala krátce poté, co jsem začala střílet a jsem za to velice vděčná. Mimo střelnici momentálně studuji na Západočeské univerzitě v Plzni a pracuji v masérském salónu. Kromě střelců z našeho klubu se začínám také věnovat střelcům hendikepovaným.',
+          profilePhoto: 'recurve-bow.jpg',
+          slug: 'tereza-brandova',
+        },
+        {
+          name: 'Jan Šípek 4',
+          clubRole: 'šéftrenér',
+          about:
+            'Dělat šéftrenéra, je sice náročná, ale zajímavá a rozmanitá práce. Mimo střelnici rád hraji deskové hry a čtu fantasy knihy. Volný čas věnuji své rodině (mám dva syny).',
+          profilePhoto: 'compound-bow.jpg',
+          slug: 'jan-sipek',
+        },
+        {
+          name: 'Tereza Brandová 5',
+          clubRole: 'trenér',
+          about:
+            'Příležitost dělat trenéra jsem dostala krátce poté, co jsem začala střílet a jsem za to velice vděčná. Mimo střelnici momentálně studuji na Západočeské univerzitě v Plzni a pracuji v masérském salónu. Kromě střelců z našeho klubu se začínám také věnovat střelcům hendikepovaným.',
+          profilePhoto: 'recurve-bow.jpg',
+          slug: 'tereza-brandova',
+        },
+        {
+          name: 'Jan Šípek 6',
+          clubRole: 'šéftrenér',
+          about:
+            'Dělat šéftrenéra, je sice náročná, ale zajímavá a rozmanitá práce. Mimo střelnici rád hraji deskové hry a čtu fantasy knihy. Volný čas věnuji své rodině (mám dva syny).',
+          profilePhoto: 'compound-bow.jpg',
+          slug: 'jan-sipek',
+        },
+      ],
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -233,11 +266,15 @@ export default {}
 #people {
   padding: 6rem 0;
   display: flex;
-  justify-content: space-evenly;
-}
+  flex-direction: column;
+  align-items: center;
 
-.people-active {
-  width: 30rem;
+  h3 {
+    align-self: flex-start;
+    width: 85%;
+    margin: auto;
+    padding: 0 4rem 4rem 4rem;
+  }
 }
 
 @media (min-width: 576px) {

@@ -11,7 +11,7 @@ export default {}
 </script>
 
 <style lang="scss">
-button {
+.page-button {
   border: none;
   background-color: $primary;
   color: $black;

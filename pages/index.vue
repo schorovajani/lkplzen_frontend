@@ -55,7 +55,7 @@
       </div>
     </section>
     <section id="home-archery">
-      <div class="page-cols">
+      <div class="page-cols" id="archery">
         <div class="column">
           <img
             class="col-image"
@@ -105,9 +105,18 @@
         </article>
       </div>
     </section>
-    <section id="people">
+    <section id="people" class="homepage-section">
       <h3>Lidé v klubu</h3>
       <HomepageSlider :profiles="profiles" />
+    </section>
+    <section id="posts" class="homepage-section">
+      <h3>Aktuality</h3>
+      <HomepagePosts :posts="sortPosts" />
+      <div class="page-button-div">
+        <nuxt-link class="page-button" tag="button" to="/competetions/posts"
+          >Více aktualit</nuxt-link
+        >
+      </div>
     </section>
   </main>
 </template>
@@ -166,7 +175,44 @@ export default {
           slug: 'jan-sipek',
         },
       ],
+      posts: [
+        {
+          id: 1,
+          titlePost: '20. MČR dorostu v Prostějově',
+          slug: '20-mcr-v-prostejove',
+          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu augue sed metus blandit gravida sed quis lacus. Pellentesque pulvinar, massa eu efficitur lacinia, erat dolor volutpat dolor, eu posuere elit nisi id arcu. Maecenas a egestas nunc. Nunc id sapien id ipsum accumsan ullamcorper vel eget tellus. Suspendisse tempor feugiat lectus quis maximus. Pellentesque metus tortor, congue vel eleifend id, tempus vel nisl. Sed dolor ligula, malesuada ut tellus quis, condimentum posuere mi. ',
+          createdAt: '2022-04-18T13:39:02.946Z',
+        },
+        {
+          id: 2,
+          titlePost: 'Závod v Praze',
+          slug: 'zavod-v-praze',
+          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu augue sed metus blandit gravida sed quis lacus. Pellentesque pulvinar, massa eu efficitur lacinia, erat dolor volutpat dolor, eu posuere elit nisi id arcu. Maecenas a egestas nunc. Nunc id sapien id ipsum accumsan ullamcorper vel eget tellus. Suspendisse tempor feugiat lectus quis maximus. Pellentesque metus tortor, congue vel eleifend id, tempus vel nisl. Sed dolor ligula, malesuada ut tellus quis, condimentum posuere mi. ',
+          createdAt: '2022-04-18T13:20:02.946Z',
+        },
+        {
+          id: 3,
+          titlePost: '20. MČR dorostu v Brně',
+          slug: '20-mcr-v-brne',
+          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu augue sed metus blandit gravida sed quis lacus. Pellentesque pulvinar, massa eu efficitur lacinia, erat dolor volutpat dolor, eu posuere elit nisi id arcu. Maecenas a egestas nunc. Nunc id sapien id ipsum accumsan ullamcorper vel eget tellus. Suspendisse tempor feugiat lectus quis maximus. Pellentesque metus tortor, congue vel eleifend id, tempus vel nisl. Sed dolor ligula, malesuada ut tellus quis, condimentum posuere mi. ',
+          createdAt: '2022-04-12T13:39:02.946Z',
+        },
+        {
+          id: 4,
+          titlePost: 'Závod v Plzni',
+          slug: 'zavod-v-plzni',
+          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu augue sed metus blandit gravida sed quis lacus. Pellentesque pulvinar, massa eu efficitur lacinia, erat dolor volutpat dolor, eu posuere elit nisi id arcu. Maecenas a egestas nunc. Nunc id sapien id ipsum accumsan ullamcorper vel eget tellus. Suspendisse tempor feugiat lectus quis maximus. Pellentesque metus tortor, congue vel eleifend id, tempus vel nisl. Sed dolor ligula, malesuada ut tellus quis, condimentum posuere mi. ',
+          createdAt: '2022-04-18T15:20:02.946Z',
+        },
+      ],
     }
+  },
+  computed: {
+    sortPosts() {
+      return this.posts.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      )
+    },
   },
 }
 </script>
@@ -208,6 +254,11 @@ export default {
 
 //club and archery
 
+.page-button {
+  align-self: center;
+  margin: 2rem 0 2.5rem 0;
+}
+
 .page-cols {
   width: 85%;
   margin: auto;
@@ -217,11 +268,12 @@ export default {
   article {
     display: flex;
     flex-direction: column;
-    button {
-      align-self: center;
-      margin: 1.5rem 0 2rem 0;
-    }
   }
+}
+
+#archery {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .column {
@@ -261,9 +313,7 @@ export default {
   border-radius: 50%;
 }
 
-//people
-
-#people {
+.homepage-section {
   padding: 6rem 0;
   display: flex;
   flex-direction: column;
@@ -273,17 +323,28 @@ export default {
     align-self: flex-start;
     width: 85%;
     margin: auto;
-    padding: 0 4rem 4rem 4rem;
+    //padding-bottom: 4rem;
   }
 }
 
-@media (min-width: 576px) {
-  .page-cols {
-    article {
-      padding: 0 2rem;
-    }
-  }
+#posts {
+  background-color: $grey;
+  color: $white;
 
+  div {
+    width: 85%;
+    margin: auto;
+    // padding: 0 4rem;
+    //text-align: end;
+  }
+}
+
+.page-button-div {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 576px) {
   .bow-types {
     margin: 3rem 2rem 2rem 2rem;
   }
@@ -302,14 +363,8 @@ export default {
     top: 40%;
   }
 
-  .page-cols {
-    article {
-      padding: 0 4rem;
-    }
-  }
-
   .bow-types {
-    margin: 3rem 0rem 2rem 0rem;
+    margin: 3rem 2rem 2rem 2rem;
   }
 }
 
@@ -327,6 +382,10 @@ export default {
     width: 80vw;
   }
 
+  .page-button {
+    align-self: flex-end;
+  }
+
   .page-cols {
     display: flex;
     justify-content: space-between;
@@ -334,10 +393,11 @@ export default {
 
     article {
       padding: 0;
-      button {
-        align-self: flex-end;
-      }
     }
+  }
+
+  #archery {
+    flex-direction: row;
   }
 
   .column {
@@ -346,12 +406,16 @@ export default {
   .col-image {
     box-shadow: 4rem 4rem #999999;
   }
+
+  .page-button-div {
+    justify-content: flex-end;
+  }
 }
 
 @media (min-width: 1200px) {
   .page-cols {
     article {
-      padding: 0 3rem;
+      padding: 0 4rem 0 0;
     }
   }
 

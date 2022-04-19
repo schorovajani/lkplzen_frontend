@@ -118,6 +118,10 @@
         >
       </div>
     </section>
+    <section id="partners" class="homepage-section">
+      <h3>Podporují nás</h3>
+      <HomepagePartners />
+    </section>
   </main>
 </template>
 
@@ -342,6 +346,13 @@ export default {
 .page-button-div {
   display: flex;
   justify-content: center;
+}
+
+#partners {
+  div {
+    width: 85%;
+    margin: auto;
+  }
 }
 
 @media (min-width: 576px) {

@@ -41,7 +41,7 @@
             sapien. Nulla turpis magna, cursus sit amet, suscipit a, interdum
             id, felis. Etiam commodo dui eget wisi. Pellentesque sapien.
           </p>
-          <nuxt-link class="page-button" tag="button" to="/club/start"
+          <nuxt-link class="page-button" tag="button" to="/start"
             >Staň se členem</nuxt-link
           >
         </article>

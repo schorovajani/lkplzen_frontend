@@ -1,14 +1,14 @@
 <template>
   <header>
     <div class="logo">
-      <img src="~/assets/logo.png" alt="logo" />
-      <h1 class="header-head">1. lukostřelecký klub<br />Plzeň 1935</h1>
+      <img src="~/assets/logo-text.svg" alt="logo" />
+      <!-- <h1 class="header-head">1. lukostřelecký klub<br />Plzeň 1935</h1> -->
     </div>
     <UiNavigation />
   </header>
 </template>
 
-<style>
+<style lang="scss" scoped>
 header {
   padding: 1.5rem 3rem;
   display: flex;
@@ -22,6 +22,10 @@ header {
 .logo {
   display: flex;
   align-items: center;
+
+  img {
+    height: 4.5rem;
+  }
 }
 
 .header-head {

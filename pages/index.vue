@@ -128,57 +128,19 @@
 <script>
 export default {
   data() {
-    return {
-      profiles: [],
-      posts: [],
-    }
+    return {}
   },
   computed: {
-    // sortPosts() {
-    //   return this.posts.sort(
-    //     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-    //   )
-    // },
+    profiles() {
+      return this.$store.getters['profiles/homepageProfiles']
+    },
+    posts() {
+      return this.$store.getters['posts/posts']
+    },
   },
-  async mounted() {
-    const qs = require('qs')
-    const profileQuery = qs.stringify(
-      {
-        populate: '*',
-        filters: {
-          onHomepage: {
-            $eq: true,
-          },
-        },
-      },
-      {
-        encodeValuesOnly: true,
-      }
-    )
-
-    const postQuery = qs.stringify(
-      {
-        sort: 'publishedAt:desc',
-      },
-      {
-        encodeValuesOnly: true,
-      }
-    )
-    try {
-      let response = await this.$axios.$get(
-        `http://localhost:1337/api/profiles?${profileQuery}`
-      )
-      //console.log(response.data)
-      this.profiles = await response.data
-
-      response = await this.$axios.$get(
-        `http://localhost:1337/api/posts?${postQuery}`
-      )
-      console.log(response)
-      this.posts = await response.data
-    } catch {
-      console.log('Nejde to')
-    }
+  created() {
+    this.$store.dispatch('profiles/getHomepageProfiles')
+    this.$store.dispatch('posts/getPosts')
   },
 }
 </script>

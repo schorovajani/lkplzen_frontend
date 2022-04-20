@@ -41,6 +41,12 @@ header {
   z-index: 50;
   position: absolute;
   width: 100%;
+  //background-color: $white;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.4) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .logo {

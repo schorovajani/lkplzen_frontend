@@ -17,8 +17,8 @@
     <div class="slider-inner">
       <HomepageSliderItem
         v-for="(profile, index) in profiles"
-        :key="index"
-        :profile="profile"
+        :key="profile.id"
+        :profile="profile.attributes"
         :index="index"
         :currentSlide="currentSlide"
       />
@@ -104,5 +104,6 @@ export default {
 
 .slider-button {
   border: none;
+  background: none;
 }
 </style>

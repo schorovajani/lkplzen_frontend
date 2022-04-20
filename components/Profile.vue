@@ -19,10 +19,12 @@ export default {
   },
   computed: {
     imgUrl() {
-      return require('~/assets/photos/recurve-bow-thumb.jpg')
+      const url = this.profile.profilePhoto.data.attributes.url
+      //console.log(url)
+      return `http://localhost:1337${url}`
     },
     moreUrl() {
-      return '/club/people/tereza-brandova'
+      return `/club/people/${this.profile.slug}`
     },
   },
 }
@@ -46,6 +48,7 @@ export default {
 .profile-head {
   text-align: center;
   img {
+    width: 60%;
     border-radius: 50%;
   }
 

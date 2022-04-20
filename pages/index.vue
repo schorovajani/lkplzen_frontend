@@ -111,7 +111,7 @@
     </section>
     <section id="posts" class="homepage-section">
       <h3>Aktuality</h3>
-      <HomepagePosts :posts="sortPosts" />
+      <HomepagePosts :posts="posts" />
       <div class="page-button-div">
         <nuxt-link class="page-button" tag="button" to="/competetions/posts"
           >Více aktualit</nuxt-link
@@ -129,94 +129,56 @@
 export default {
   data() {
     return {
-      profiles: [
-        {
-          name: 'Tereza Brandová 1',
-          clubRole: 'trenér',
-          about:
-            'Příležitost dělat trenéra jsem dostala krátce poté, co jsem začala střílet a jsem za to velice vděčná. Mimo střelnici momentálně studuji na Západočeské univerzitě v Plzni a pracuji v masérském salónu. Kromě střelců z našeho klubu se začínám také věnovat střelcům hendikepovaným.',
-          profilePhoto: 'recurve-bow.jpg',
-          slug: 'tereza-brandova',
-        },
-        {
-          name: 'Jan Šípek 2',
-          clubRole: 'šéftrenér',
-          about:
-            'Dělat šéftrenéra, je sice náročná, ale zajímavá a rozmanitá práce. Mimo střelnici rád hraji deskové hry a čtu fantasy knihy. Volný čas věnuji své rodině (mám dva syny).',
-          profilePhoto: 'compound-bow.jpg',
-          slug: 'jan-sipek',
-        },
-        {
-          name: 'Tereza Brandová 3',
-          clubRole: 'trenér',
-          about:
-            'Příležitost dělat trenéra jsem dostala krátce poté, co jsem začala střílet a jsem za to velice vděčná. Mimo střelnici momentálně studuji na Západočeské univerzitě v Plzni a pracuji v masérském salónu. Kromě střelců z našeho klubu se začínám také věnovat střelcům hendikepovaným.',
-          profilePhoto: 'recurve-bow.jpg',
-          slug: 'tereza-brandova',
-        },
-        {
-          name: 'Jan Šípek 4',
-          clubRole: 'šéftrenér',
-          about:
-            'Dělat šéftrenéra, je sice náročná, ale zajímavá a rozmanitá práce. Mimo střelnici rád hraji deskové hry a čtu fantasy knihy. Volný čas věnuji své rodině (mám dva syny).',
-          profilePhoto: 'compound-bow.jpg',
-          slug: 'jan-sipek',
-        },
-        {
-          name: 'Tereza Brandová 5',
-          clubRole: 'trenér',
-          about:
-            'Příležitost dělat trenéra jsem dostala krátce poté, co jsem začala střílet a jsem za to velice vděčná. Mimo střelnici momentálně studuji na Západočeské univerzitě v Plzni a pracuji v masérském salónu. Kromě střelců z našeho klubu se začínám také věnovat střelcům hendikepovaným.',
-          profilePhoto: 'recurve-bow.jpg',
-          slug: 'tereza-brandova',
-        },
-        {
-          name: 'Jan Šípek 6',
-          clubRole: 'šéftrenér',
-          about:
-            'Dělat šéftrenéra, je sice náročná, ale zajímavá a rozmanitá práce. Mimo střelnici rád hraji deskové hry a čtu fantasy knihy. Volný čas věnuji své rodině (mám dva syny).',
-          profilePhoto: 'compound-bow.jpg',
-          slug: 'jan-sipek',
-        },
-      ],
-      posts: [
-        {
-          id: 1,
-          titlePost: '20. MČR dorostu v Prostějově',
-          slug: '20-mcr-v-prostejove',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu augue sed metus blandit gravida sed quis lacus. Pellentesque pulvinar, massa eu efficitur lacinia, erat dolor volutpat dolor, eu posuere elit nisi id arcu. Maecenas a egestas nunc. Nunc id sapien id ipsum accumsan ullamcorper vel eget tellus. Suspendisse tempor feugiat lectus quis maximus. Pellentesque metus tortor, congue vel eleifend id, tempus vel nisl. Sed dolor ligula, malesuada ut tellus quis, condimentum posuere mi. ',
-          createdAt: '2022-04-18T13:39:02.946Z',
-        },
-        {
-          id: 2,
-          titlePost: 'Závod v Praze',
-          slug: 'zavod-v-praze',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu augue sed metus blandit gravida sed quis lacus. Pellentesque pulvinar, massa eu efficitur lacinia, erat dolor volutpat dolor, eu posuere elit nisi id arcu. Maecenas a egestas nunc. Nunc id sapien id ipsum accumsan ullamcorper vel eget tellus. Suspendisse tempor feugiat lectus quis maximus. Pellentesque metus tortor, congue vel eleifend id, tempus vel nisl. Sed dolor ligula, malesuada ut tellus quis, condimentum posuere mi. ',
-          createdAt: '2022-04-18T13:20:02.946Z',
-        },
-        {
-          id: 3,
-          titlePost: '20. MČR dorostu v Brně',
-          slug: '20-mcr-v-brne',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu augue sed metus blandit gravida sed quis lacus. Pellentesque pulvinar, massa eu efficitur lacinia, erat dolor volutpat dolor, eu posuere elit nisi id arcu. Maecenas a egestas nunc. Nunc id sapien id ipsum accumsan ullamcorper vel eget tellus. Suspendisse tempor feugiat lectus quis maximus. Pellentesque metus tortor, congue vel eleifend id, tempus vel nisl. Sed dolor ligula, malesuada ut tellus quis, condimentum posuere mi. ',
-          createdAt: '2022-04-12T13:39:02.946Z',
-        },
-        {
-          id: 4,
-          titlePost: 'Závod v Plzni',
-          slug: 'zavod-v-plzni',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu augue sed metus blandit gravida sed quis lacus. Pellentesque pulvinar, massa eu efficitur lacinia, erat dolor volutpat dolor, eu posuere elit nisi id arcu. Maecenas a egestas nunc. Nunc id sapien id ipsum accumsan ullamcorper vel eget tellus. Suspendisse tempor feugiat lectus quis maximus. Pellentesque metus tortor, congue vel eleifend id, tempus vel nisl. Sed dolor ligula, malesuada ut tellus quis, condimentum posuere mi. ',
-          createdAt: '2022-04-18T15:20:02.946Z',
-        },
-      ],
+      profiles: [],
+      posts: [],
     }
   },
   computed: {
-    sortPosts() {
-      return this.posts.sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    // sortPosts() {
+    //   return this.posts.sort(
+    //     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    //   )
+    // },
+  },
+  async mounted() {
+    const qs = require('qs')
+    const profileQuery = qs.stringify(
+      {
+        populate: '*',
+        filters: {
+          onHomepage: {
+            $eq: true,
+          },
+        },
+      },
+      {
+        encodeValuesOnly: true,
+      }
+    )
+
+    const postQuery = qs.stringify(
+      {
+        sort: 'publishedAt:desc',
+      },
+      {
+        encodeValuesOnly: true,
+      }
+    )
+    try {
+      let response = await this.$axios.$get(
+        `http://localhost:1337/api/profiles?${profileQuery}`
       )
-    },
+      //console.log(response.data)
+      this.profiles = await response.data
+
+      response = await this.$axios.$get(
+        `http://localhost:1337/api/posts?${postQuery}`
+      )
+      console.log(response)
+      this.posts = await response.data
+    } catch {
+      console.log('Nejde to')
+    }
   },
 }
 </script>

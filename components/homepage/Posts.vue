@@ -3,9 +3,9 @@
     <HomepagePostItem
       v-for="post in shortPosts"
       :key="post.id"
-      :title="post.titlePost"
-      :slug="post.slug"
-      :body="post.body"
+      :title="post.attributes.titlePost"
+      :slug="post.attributes.slug"
+      :body="post.attributes.body"
     />
   </div>
 </template>

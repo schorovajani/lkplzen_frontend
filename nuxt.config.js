@@ -1,6 +1,7 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
+  ssr: true,
+  target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -34,10 +35,14 @@ export default {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources'],
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/axios'],
 
   styleResources: {
     scss: ['~/assets/scss/*.scss'],
+  },
+
+  axios: {
+    baseURL: 'http://localhost:1337',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

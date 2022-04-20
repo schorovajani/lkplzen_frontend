@@ -313,10 +313,6 @@ export default {
     }
   }
 
-  .content {
-    width: 80vw;
-  }
-
   .page-button {
     align-self: flex-end;
   }

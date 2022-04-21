@@ -16,9 +16,7 @@ export default {
     )
     let response
     try {
-      response = await this.$axios.$get(
-        `http://localhost:1337/api/profiles?${profileQuery}`
-      )
+      response = await this.$axios.$get(`/profiles?${profileQuery}`)
     } catch (err) {
       console.log(err)
     }

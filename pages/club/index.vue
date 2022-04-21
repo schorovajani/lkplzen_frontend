@@ -83,21 +83,30 @@
                 Členové
               </button>
               <button
-                @click="changeTable('coaches')"
+                @click="
+                  changeTable('coaches')
+                  loadCoaches()
+                "
                 class="people-button"
                 :class="{ active: activeTable === 'coaches' }"
               >
                 Trenéři
               </button>
               <button
-                @click="changeTable('committee')"
+                @click="
+                  changeTable('committee')
+                  loadCommittee()
+                "
                 class="people-button"
                 :class="{ active: activeTable === 'committee' }"
               >
                 Předsednictvo
               </button>
               <button
-                @click="changeTable('league')"
+                @click="
+                  changeTable('league')
+                  loadLeague()
+                "
                 class="people-button"
                 :class="{ active: activeTable === 'league' }"
               >
@@ -118,8 +127,8 @@
                 </thead>
                 <tbody>
                   <tr v-for="member in members" :key="member.id">
-                    <td>{{ member.name }}</td>
-                    <td>{{ member.ageCategory }}</td>
+                    <td>{{ member.attributes.name }}</td>
+                    <td>{{ member.attributes.ageCategory }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -137,13 +146,20 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="coach in choaches" :key="coach.id">
+                  <tr v-for="coach in coaches" :key="coach.id">
                     <td>
-                      <nuxt-link to="/club/people/coach.slug">
-                        {{ coach.name }}
+                      <nuxt-link
+                        v-if="coach.attributes.profile.data"
+                        :to="
+                          '/club/people/' +
+                          coach.attributes.profile.data.attributes.slug
+                        "
+                      >
+                        {{ coach.attributes.name }}
                       </nuxt-link>
+                      <span v-else>{{ coach.attributes.name }}</span>
                     </td>
-                    <td>{{ coach.education }}</td>
+                    <td>{{ coach.attributes.education }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -163,11 +179,18 @@
                 <tbody>
                   <tr v-for="person in committee" :key="person.id">
                     <td>
-                      <nuxt-link to="/club/people/person.slug">
-                        {{ person.name }}
+                      <nuxt-link
+                        v-if="person.attributes.profile.data"
+                        :to="
+                          '/club/people/' +
+                          person.attributes.profile.data.attributes.slug
+                        "
+                      >
+                        {{ person.attributes.name }}
                       </nuxt-link>
+                      <span v-else>{{ person.attributes.name }}</span>
                     </td>
-                    <td>{{ person.committeeRole }}</td>
+                    <td>{{ person.attributes.committeeRole }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -182,9 +205,16 @@
                 <tbody>
                   <tr v-for="archer in menLeague" :key="archer.id">
                     <td>
-                      <nuxt-link to="/club/people/archer.slug">
-                        {{ archer.name }}
+                      <nuxt-link
+                        v-if="archer.attributes.profile.data"
+                        :to="
+                          '/club/people/' +
+                          archer.attributes.profile.data.attributes.slug
+                        "
+                      >
+                        {{ archer.attributes.name }}
                       </nuxt-link>
+                      <span v-else>{{ archer.attributes.name }}</span>
                     </td>
                   </tr>
                 </tbody>
@@ -194,9 +224,16 @@
                 <tbody>
                   <tr v-for="archer in womenLeague" :key="archer.id">
                     <td>
-                      <nuxt-link to="/club/people/archer.slug">
-                        {{ archer.name }}
+                      <nuxt-link
+                        v-if="archer.attributes.profile.data"
+                        :to="
+                          '/club/people/' +
+                          archer.attributes.profile.data.attributes.slug
+                        "
+                      >
+                        {{ archer.attributes.name }}
                       </nuxt-link>
+                      <span v-else>{{ archer.attributes.name }}</span>
                     </td>
                   </tr>
                 </tbody>
@@ -206,9 +243,16 @@
                 <tbody>
                   <tr v-for="archer in youthLeague" :key="archer.id">
                     <td>
-                      <nuxt-link to="/club/people/archer.slug">
-                        {{ archer.name }}
+                      <nuxt-link
+                        v-if="archer.attributes.profile.data"
+                        :to="
+                          '/club/people/' +
+                          archer.attributes.profile.data.attributes.slug
+                        "
+                      >
+                        {{ archer.attributes.name }}
                       </nuxt-link>
+                      <span v-else>{{ archer.attributes.name }}</span>
                     </td>
                   </tr>
                 </tbody>
@@ -229,10 +273,72 @@ export default {
       activeTable: 'members',
     }
   },
+  computed: {
+    members() {
+      console.log(this.$store.getters['people/members'])
+      return this.$store.getters['people/members']
+    },
+    coaches() {
+      if (this.$store.getters['people/isCoachesLoaded']) {
+        return this.$store.getters['people/coaches']
+      } else {
+        return []
+      }
+    },
+    committee() {
+      if (this.$store.getters['people/isCommitteeLoaded']) {
+        return this.$store.getters['people/committee']
+      } else {
+        return []
+      }
+    },
+    menLeague() {
+      if (this.$store.getters['people/isLeagueLoaded']) {
+        return this.$store.getters['people/menLeague']
+      } else {
+        return []
+      }
+    },
+    womenLeague() {
+      if (this.$store.getters['people/isLeagueLoaded']) {
+        return this.$store.getters['people/womenLeague']
+      } else {
+        return []
+      }
+    },
+    youthLeague() {
+      if (this.$store.getters['people/isLeagueLoaded']) {
+        return this.$store.getters['people/youthLeague']
+      } else {
+        return []
+      }
+    },
+  },
   methods: {
     changeTable(type) {
       this.activeTable = type
     },
+    loadMembers() {
+      this.$store.dispatch('people/loadMembers')
+    },
+    loadCoaches() {
+      if (!this.$store.getters['people/isCoachesLoaded']) {
+        this.$store.dispatch('people/loadCoaches')
+      }
+    },
+    loadCommittee() {
+      if (!this.$store.getters['people/isCommitteeLoaded']) {
+        this.$store.dispatch('people/loadCommittee')
+      }
+    },
+    loadLeague() {
+      if (!this.$store.getters['people/isLeagueLoaded']) {
+        this.$store.dispatch('people/loadLeague')
+      }
+    },
+  },
+  created() {
+    this.loadMembers()
   },
 }
 </script>
@@ -243,6 +349,7 @@ export default {
 }
 
 .page-second {
+  color: $white;
   background-color: $grey;
 }
 
@@ -297,8 +404,10 @@ export default {
 
 .people-list {
   table {
+    color: $black;
     width: 100%;
     background-color: $white;
+    //border-radius: 10px;
 
     thead {
       border-bottom: 1px solid $black;
@@ -317,6 +426,12 @@ export default {
         background: #dddddd;
       }
     }
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 2rem 0 0.8rem 0;
   }
 }
 

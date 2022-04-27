@@ -149,17 +149,14 @@
                   <tr v-for="coach in coaches" :key="coach.id">
                     <td>
                       <nuxt-link
-                        v-if="coach.attributes.profile.data"
-                        :to="
-                          '/club/people/' +
-                          coach.attributes.profile.data.attributes.slug
-                        "
+                        v-if="coach.haveProfile"
+                        :to="'/club/people/' + coach.slug"
                       >
-                        {{ coach.attributes.name }}
+                        {{ coach.name }}
                       </nuxt-link>
-                      <span v-else>{{ coach.attributes.name }}</span>
+                      <span v-else>{{ coach.name }}</span>
                     </td>
-                    <td>{{ coach.attributes.education }}</td>
+                    <td>{{ coach.education }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -180,17 +177,14 @@
                   <tr v-for="person in committee" :key="person.id">
                     <td>
                       <nuxt-link
-                        v-if="person.attributes.profile.data"
-                        :to="
-                          '/club/people/' +
-                          person.attributes.profile.data.attributes.slug
-                        "
+                        v-if="person.haveProfile"
+                        :to="'/club/people/' + person.slug"
                       >
-                        {{ person.attributes.name }}
+                        {{ person.name }}
                       </nuxt-link>
-                      <span v-else>{{ person.attributes.name }}</span>
+                      <span v-else>{{ person.name }}</span>
                     </td>
-                    <td>{{ person.attributes.committeeRole }}</td>
+                    <td>{{ person.role }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -206,11 +200,8 @@
                   <tr v-for="archer in menLeague" :key="archer.id">
                     <td>
                       <nuxt-link
-                        v-if="archer.attributes.profile.data"
-                        :to="
-                          '/club/people/' +
-                          archer.attributes.profile.data.attributes.slug
-                        "
+                        v-if="archer.attributes.profile.data !== null"
+                        :to="'/club/people/' + archer.attributes.slug"
                       >
                         {{ archer.attributes.name }}
                       </nuxt-link>
@@ -225,11 +216,8 @@
                   <tr v-for="archer in womenLeague" :key="archer.id">
                     <td>
                       <nuxt-link
-                        v-if="archer.attributes.profile.data"
-                        :to="
-                          '/club/people/' +
-                          archer.attributes.profile.data.attributes.slug
-                        "
+                        v-if="archer.attributes.profile.data !== null"
+                        :to="'/club/people/' + archer.attributes.slug"
                       >
                         {{ archer.attributes.name }}
                       </nuxt-link>
@@ -244,11 +232,8 @@
                   <tr v-for="archer in youthLeague" :key="archer.id">
                     <td>
                       <nuxt-link
-                        v-if="archer.attributes.profile.data"
-                        :to="
-                          '/club/people/' +
-                          archer.attributes.profile.data.attributes.slug
-                        "
+                        v-if="archer.attributes.profile.data !== null"
+                        :to="'/club/people/' + archer.attributes.slug"
                       >
                         {{ archer.attributes.name }}
                       </nuxt-link>
@@ -275,7 +260,7 @@ export default {
   },
   computed: {
     members() {
-      console.log(this.$store.getters['people/members'])
+      // console.log(this.$store.getters['people/members'])
       return this.$store.getters['people/members']
     },
     coaches() {

@@ -13,7 +13,7 @@ export default {
     const qs = require('qs')
     const query = qs.stringify(
       {
-        populate: '*',
+        populate: ['member', 'member.profile'],
       },
       {
         encodeValuesOnly: true,
@@ -33,7 +33,7 @@ export default {
     const qs = require('qs')
     const query = qs.stringify(
       {
-        populate: '*',
+        populate: ['member', 'member.profile'],
       },
       {
         encodeValuesOnly: true,
@@ -43,6 +43,7 @@ export default {
     let response
     try {
       response = await this.$axios.$get(`/committees?${query}`)
+      // console.log(response)
     } catch (err) {
       console.log(err)
     }
@@ -54,7 +55,7 @@ export default {
     const qs = require('qs')
     const query = qs.stringify(
       {
-        populate: '*',
+        populate: ['members', 'members.profile'],
       },
       {
         encodeValuesOnly: true,
@@ -67,7 +68,7 @@ export default {
     } catch (err) {
       console.log(err)
     }
-    console.log(response)
+    // console.log(response)
     context.commit('setLeague', response.data)
   },
 }

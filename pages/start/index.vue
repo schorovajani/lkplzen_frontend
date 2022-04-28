@@ -83,7 +83,7 @@
       </div>
     </section>
     <section id="public-archery" class="page-section">
-      <div class="page-cols">
+      <div class="page-layout page-cols">
         <PagesForm
           class="page-column"
           title="Zarezervuj si lekci pro veřejnost"
@@ -96,43 +96,58 @@
       </div>
     </section>
     <section id="start-membership" class="page-section">
-      <!-- <PagesCourseInfo class="page-column" :info="startCourse">
-      </PagesCourseInfo> -->
-      <PagesForm
-        title="Přihlaš se na kurz lukostřelby pro začátečníky"
-        type="start"
-        :options="terms"
-        @sendMail="sendStart"
-      />
+      <div class="page-layout page-cols">
+        <PagesCourseInfo class="page-column" :info="startCourse">
+          <h4>Dostupné termíny:</h4>
+          <div class="course-terms">
+            <div
+              class="term-box"
+              v-for="term in startCourse.courseTerms"
+              :key="term.id"
+            >
+              <div class="term-time">
+                <span class="bold">První termín: </span>
+                <span>{{ term.firstTime }}</span>
+              </div>
+              <div class="term-time">
+                <span class="bold">Další termíny: </span>
+                <ul>
+                  <li>{{ term.secondTime }}</li>
+                  <li>{{ term.thirdTime }}</li>
+                  <li>{{ term.fourthTime }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </PagesCourseInfo>
+        <PagesForm
+          class="page-column"
+          title="Přihlaš se na kurz lukostřelby pro začátečníky"
+          type="start"
+          :options="startCourse.courseTerms"
+          @sendMail="sendStart"
+        />
+      </div>
     </section>
   </main>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      terms: [
-        {
-          id: 0,
-          firstTime: '18.10.2022 15:00-16:30',
-        },
-        {
-          id: 1,
-          firstTime: '18.10.2022 16:30-18:00',
-        },
-        {
-          id: 2,
-          firstTime: '19.10.2022 15:00-16:30',
-        },
-      ],
-    }
-  },
   computed: {
     publicArchery() {
-      console.log(this.$store.getters['pages/publicArchery'])
       return this.$store.getters['pages/publicArchery']
     },
+    // startMembership() {
+    //   return this.$store.getters['pages/startMembership']
+    // },
+    startCourse() {
+      console.log(this.$store.getters['pages/startCourse'])
+      return this.$store.getters['pages/startCourse']
+    },
+    // companyCourse() {
+    //   return this.$store.getters['pages/companyCourse']
+    // },
   },
   methods: {
     sendPublic(data) {
@@ -146,6 +161,9 @@ export default {
   },
   created() {
     this.$store.dispatch('pages/publicArchery')
+    // this.$store.dispatch('pages/startMembership')
+    this.$store.dispatch('pages/startCourse')
+    // this.$store.dispatch('pages/companyCourse')
   },
 }
 </script>
@@ -156,7 +174,34 @@ export default {
   width: 90%;
 }
 
-#public-archery {
-  margin: 5rem;
+h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.course-terms {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.term-box {
+  background-color: $primary;
+  padding: 1.8rem;
+  margin: 0.5rem;
+}
+
+.term-time {
+  margin: 0.8rem 0;
+  display: flex;
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.bold {
+  font-weight: 600;
+  margin-right: 0.3rem;
 }
 </style>

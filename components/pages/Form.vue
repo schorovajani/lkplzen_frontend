@@ -94,7 +94,7 @@ export default {
         phone: '',
         date: new Date().toLocaleDateString('en-CA'),
         time: '15',
-        term: 0,
+        term: 1,
         message: '',
       },
       gdpr: false,

@@ -10,13 +10,13 @@
         {{ info.moreInfo.coursePrice }}
       </li>
       <li v-if="info.moreInfo.courseInfo">
-        {{ publicArchery.moreInfo.courseInfo }}
+        {{ info.moreInfo.courseInfo }}
       </li>
     </ul>
     <div class="info-slot">
       <slot></slot>
     </div>
-    <div v-if="info.contact" class="contact">
+    <div v-if="info.contact !== undefined" class="contact">
       <p>{{ info.contact.contactInfo }}</p>
       <dl>
         <dt>{{ info.contact.contactPerson }}</dt>

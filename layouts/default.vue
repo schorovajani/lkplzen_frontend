@@ -34,4 +34,38 @@ p {
   line-height: 150%;
   text-align: justify;
 }
+
+.page-section {
+  padding: 6rem 0;
+}
+
+.page-layout {
+  width: 85%;
+  margin: auto;
+}
+.page-cols {
+  display: flex;
+  justify-content: space-between;
+  //align-items: center;
+  padding: 2rem 0;
+}
+
+.page-column {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+  p {
+    margin: 1rem 0;
+  }
+}
+
+.page-button {
+  margin: 2rem 0;
+  align-self: flex-end;
+}
 </style>

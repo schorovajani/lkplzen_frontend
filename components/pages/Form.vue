@@ -167,9 +167,12 @@ export default {
 
 <style lang="scss" scoped>
 .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   background-color: $black;
   color: $white;
-  padding: 2rem;
+  padding: 4rem;
 
   h3 {
     text-align: center;

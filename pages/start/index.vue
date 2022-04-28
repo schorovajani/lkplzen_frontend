@@ -83,13 +83,21 @@
       </div>
     </section>
     <section id="public-archery" class="page-section">
-      <PagesForm
-        title="Zarezervuj si lekci pro veřejnost"
-        type="public"
-        @sendMail="sendPublic"
-      />
+      <div class="page-cols">
+        <PagesForm
+          class="page-column"
+          title="Zarezervuj si lekci pro veřejnost"
+          type="public"
+          @sendMail="sendPublic"
+        />
+        <PagesCourseInfo class="page-column" :info="publicArchery">
+          <img src="~/assets/photos/theme-photo.jpg" />
+        </PagesCourseInfo>
+      </div>
     </section>
     <section id="start-membership" class="page-section">
+      <!-- <PagesCourseInfo class="page-column" :info="startCourse">
+      </PagesCourseInfo> -->
       <PagesForm
         title="Přihlaš se na kurz lukostřelby pro začátečníky"
         type="start"
@@ -120,6 +128,12 @@ export default {
       ],
     }
   },
+  computed: {
+    publicArchery() {
+      console.log(this.$store.getters['pages/publicArchery'])
+      return this.$store.getters['pages/publicArchery']
+    },
+  },
   methods: {
     sendPublic(data) {
       console.log('sendpublic')
@@ -129,6 +143,9 @@ export default {
       console.log('sendStart')
       console.log(data)
     },
+  },
+  created() {
+    this.$store.dispatch('pages/publicArchery')
   },
 }
 </script>

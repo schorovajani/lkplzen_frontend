@@ -3,16 +3,23 @@
     <h3>{{ title }}</h3>
     <form @submit.prevent="submit" novalidate="true">
       <div class="form-input">
-        <label>Jméno a příjmení zájemce</label>
-        <input v-model="formData.name" type="text" name="name" required />
+        <label>Jméno a příjmení zájemce*</label>
+        <input
+          :class="{ inputErr: errors.name !== '' }"
+          v-model="formData.name"
+          type="text"
+          name="name"
+          required
+        />
         <p class="form-error" v-if="errors.name !== ''">
           {{ errors.name }}
         </p>
       </div>
 
       <div class="form-input">
-        <label>Věk zájemce</label>
+        <label>Věk zájemce*</label>
         <input
+          :class="{ inputErr: errors.age !== '' }"
           v-model.lazy="formData.age"
           type="number"
           min="3"
@@ -32,8 +39,14 @@
         <input v-model="formData.parent" type="text" name="parent" required />
       </div>
       <div class="form-input">
-        <label>Kontaktní e-mail</label>
-        <input v-model="formData.email" type="email" name="email" required />
+        <label>Kontaktní e-mail*</label>
+        <input
+          :class="{ inputErr: errors.email !== '' }"
+          v-model="formData.email"
+          type="email"
+          name="email"
+          required
+        />
         <p class="form-error" v-if="errors.email !== ''">
           {{ errors.email }}
         </p>
@@ -43,7 +56,7 @@
         <input v-model="formData.phone" type="tel" name="phone" />
       </div>
       <div v-if="type === 'public'" class="form-input">
-        <label>Vyber datum a čas</label>
+        <label>Vyber datum a čas*</label>
         <div>
           <input v-model="formData.date" type="date" name="date" />
           <select v-model="formData.time">
@@ -54,7 +67,7 @@
         </div>
       </div>
       <div v-if="type === 'start'" class="form-input">
-        <label>Vyber si kurz</label>
+        <label>Vyber si kurz*</label>
         <select v-model="formData.term">
           <option v-for="o in options" :key="o.id" :value="o.id">
             {{ o.firstTime }}
@@ -72,7 +85,9 @@
           {{ errors.gdpr }}
         </p>
       </div>
-      <button type="submit">Odeslat přihlášku</button>
+      <div class="form-button">
+        <button type="submit">Odeslat přihlášku</button>
+      </div>
     </form>
   </div>
 </template>
@@ -177,6 +192,14 @@ export default {
   h3 {
     text-align: center;
   }
+
+  a {
+    color: $white;
+
+    &:hover {
+      color: $primary;
+    }
+  }
 }
 
 .form-input {
@@ -206,14 +229,58 @@ export default {
 }
 
 .form-check {
-  // customize checkbox
+  display: flex;
+  align-items: center;
+  input[type='checkbox'] {
+    appearance: none;
+    background-color: #fff;
+    margin-right: 0.5rem;
+    font: inherit;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 5px;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+
+    &::before {
+      content: '';
+      width: 1rem;
+      height: 1rem;
+      transform: scale(0);
+      transition: 0.12s transform ease-in-out;
+      box-shadow: inset 1rem 1rem $secondary;
+      transform-origin: bottom left;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    }
+
+    &:checked::before {
+      transform: scale(1);
+    }
+  }
 }
 
-button {
-  border: none;
-  background-color: $grey;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  padding: 0.7rem 1rem;
+.form-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  button {
+    border: none;
+    background-color: $grey;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    padding: 0.7rem 1rem;
+  }
+}
+
+.inputErr {
+  outline: 2px solid $error;
+}
+
+.form-error {
+  margin: 0.2rem 0;
+  font-size: 0.8rem;
+  color: $error;
 }
 </style>

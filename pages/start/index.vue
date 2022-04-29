@@ -77,7 +77,7 @@
           <p>
             Můžeme pro vás připravit zážitek, na který kolegové nezapomenou.
             Více informací najdeš v sekci
-            <a href="#public-archery">Firemní akce</a>.
+            <a href="#company-course">Firemní akce</a>.
           </p>
         </div>
       </div>
@@ -129,6 +129,14 @@
         />
       </div>
     </section>
+    <section id="company-course" class="page-section">
+      <div class="page-layout page-cols">
+        <div class="page-column">
+          <img src="~/assets/photos/theme-photo.jpg" />
+        </div>
+        <PagesCourseInfo class="page-column" :info="companyCourse" />
+      </div>
+    </section>
   </main>
 </template>
 
@@ -145,25 +153,36 @@ export default {
       console.log(this.$store.getters['pages/startCourse'])
       return this.$store.getters['pages/startCourse']
     },
-    // companyCourse() {
-    //   return this.$store.getters['pages/companyCourse']
-    // },
+    companyCourse() {
+      return this.$store.getters['pages/companyCourse']
+    },
   },
   methods: {
-    sendPublic(data) {
+    async sendPublic(data) {
       console.log('sendpublic')
-      console.log(data)
+      const message = {
+        type: 'public-archery',
+        clubMail: this.publicArchery.contact.contactEmail,
+        data: data,
+      }
+
+      this.$store.dispatch('messages/sendMessage', message)
     },
     sendStart(data) {
       console.log('sendStart')
-      console.log(data)
+      const message = {
+        type: 'start-course',
+        clubMail: this.startCourse.contact.contactEmail,
+        data: data,
+      }
+      this.$store.dispatch('messages/sendMessage', message)
     },
   },
   created() {
     this.$store.dispatch('pages/publicArchery')
     // this.$store.dispatch('pages/startMembership')
     this.$store.dispatch('pages/startCourse')
-    // this.$store.dispatch('pages/companyCourse')
+    this.$store.dispatch('pages/companyCourse')
   },
 }
 </script>

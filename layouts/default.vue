@@ -45,15 +45,17 @@ p {
 }
 .page-cols {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  //justify-content: space-between;
   //align-items: center;
   padding: 2rem 0;
 }
 
 .page-column {
-  width: 45%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 2rem 0;
 
   img {
     width: 100%;
@@ -67,5 +69,26 @@ p {
 .page-button {
   margin: 2rem 0;
   align-self: flex-end;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  .page-cols {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .page-column {
+    width: 45%;
+    padding: 0 0;
+  }
+}
+
+@media (min-width: 1200px) {
 }
 </style>

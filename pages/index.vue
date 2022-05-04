@@ -335,7 +335,7 @@ export default {
     width: 45%;
   }
   .col-image {
-    box-shadow: 4rem 4rem #999999;
+    box-shadow: 2rem -2rem #cccccc;
   }
 
   .page-button-div {

@@ -161,21 +161,17 @@ export default {
     async sendPublic(data) {
       console.log('sendpublic')
       const message = {
-        type: 'public-archery',
-        clubMail: this.publicArchery.contact.contactEmail,
         data: data,
       }
 
-      this.$store.dispatch('messages/sendMessage', message)
+      this.$store.dispatch('messages/sendMessagePublic', message)
     },
     sendStart(data) {
       console.log('sendStart')
       const message = {
-        type: 'start-course',
-        clubMail: this.startCourse.contact.contactEmail,
         data: data,
       }
-      this.$store.dispatch('messages/sendMessage', message)
+      this.$store.dispatch('messages/sendMessageStart', message)
     },
   },
   created() {

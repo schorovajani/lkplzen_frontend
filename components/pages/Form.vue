@@ -93,6 +93,29 @@
 </template>
 
 <script>
+const initialState = function () {
+  return {
+    formData: {
+      name: '',
+      age: '',
+      parent: '',
+      email: '',
+      phone: '',
+      date: new Date().toLocaleDateString('en-CA'),
+      time: '15',
+      term: 1,
+      message: '',
+    },
+    gdpr: false,
+    errors: {
+      name: '',
+      age: '',
+      email: '',
+      gdpr: '',
+    },
+  }
+}
+
 export default {
   props: {
     title: String,
@@ -100,26 +123,7 @@ export default {
     options: Array,
   },
   data() {
-    return {
-      formData: {
-        name: '',
-        age: '',
-        parent: '',
-        email: '',
-        phone: '',
-        date: new Date().toLocaleDateString('en-CA'),
-        time: '15',
-        term: 1,
-        message: '',
-      },
-      gdpr: false,
-      errors: {
-        name: '',
-        age: '',
-        email: '',
-        gdpr: '',
-      },
-    }
+    return initialState()
   },
   computed: {
     checkValidation() {
@@ -142,37 +146,80 @@ export default {
       } else {
         console.log('poslano')
         this.$emit('sendMail', this.formData)
+        Object.assign(this.$data, initialState())
       }
     },
-    validate() {
+    validateName() {
       if (!this.formData.name) {
         this.errors.name = 'Prosím, vyplňte jméno a příjmení zájemce.'
+        return false
       } else {
         this.errors.name = ''
+        return true
       }
-
+    },
+    validateAge() {
       if (!this.formData.age) {
         this.errors.age = 'Prosím, vyplňte věk zájemce.'
+        return false
       } else if (this.formData.age < 6) {
         this.errors.age =
           'Omlouváme se, děti do 6 let se bohužel nemohou zúčastnit.'
+        return false
       } else if (this.formData.age > 120) {
         this.errors.age = 'Prosím, zadejte skutečný věk.'
+        return false
       } else {
         this.errors.age = ''
+        return true
       }
-
+    },
+    validateEmail() {
       if (!this.formData.email) {
         this.errors.email = 'Prosím, vyplňte emailovou adresu.'
+        return false
       } else if (!this.formData.email.includes('@')) {
         this.errors.email = 'Prosím, zadejte platný e-mail.'
+        return false
       } else {
         this.errors.email = ''
+        return true
       }
-
+    },
+    validateGdpr() {
       if (!this.gdpr) {
         this.errors.gdpr = 'Prosíme o souhlas se zpracováním údajů.'
+        return false
       } else {
+        this.errors.gdpr = ''
+        return true
+      }
+    },
+    validate() {
+      this.validateName()
+      this.validateAge()
+      this.validateEmail()
+      this.validateGdpr()
+    },
+  },
+  watch: {
+    'formData.name'() {
+      if (this.errors.name && this.validateName()) {
+        this.errors.name = ''
+      }
+    },
+    'formData.age'() {
+      if (this.errors.age && this.validateAge()) {
+        this.errors.age = ''
+      }
+    },
+    'formData.email'() {
+      if (this.errors.email && this.validateEmail()) {
+        this.errors.email = ''
+      }
+    },
+    gdpr() {
+      if (this.errors.gdpr && this.validateGdpr()) {
         this.errors.gdpr = ''
       }
     },

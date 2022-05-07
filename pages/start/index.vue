@@ -137,6 +137,8 @@
         <PagesCourseInfo class="page-column" :info="companyCourse" />
       </div>
     </section>
+    <!-- <button @click="showModal">TEST</button> -->
+    <UiModal />
   </main>
 </template>
 
@@ -172,6 +174,9 @@ export default {
         data: data,
       }
       this.$store.dispatch('messages/sendMessageStart', message)
+    },
+    showModal() {
+      this.$store.dispatch('modals/showModal')
     },
   },
   created() {

@@ -257,7 +257,7 @@ export default {
 
 #posts {
   background-color: $secondary;
-  color: $black;
+  color: $white;
 
   div {
     width: 85%;
@@ -335,7 +335,7 @@ export default {
     width: 45%;
   }
   .col-image {
-    box-shadow: 2rem -2rem #cccccc;
+    box-shadow: 2rem -2rem $secondary;
   }
 
   .page-button-div {

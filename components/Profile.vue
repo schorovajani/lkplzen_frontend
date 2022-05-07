@@ -2,7 +2,7 @@
   <div class="profile-container">
     <div class="profile-head">
       <img :src="imgUrl" alt="profile-photo" />
-      <h4>{{ profile.name }}</h4>
+      <h4>{{ name }}</h4>
       <span>{{ profile.clubRole }}</span>
     </div>
     <div class="profile-body">
@@ -24,7 +24,11 @@ export default {
       return `http://localhost:1337${url}`
     },
     moreUrl() {
-      return `/club/people/${this.profile.slug}`
+      console.log(this.profile)
+      return `/club/people/${this.profile.member.data.attributes.slug}`
+    },
+    name() {
+      return this.profile.member.data.attributes.name
     },
   },
 }

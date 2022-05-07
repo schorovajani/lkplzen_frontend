@@ -51,8 +51,7 @@ export default {
 
 <style lang="scss" scoped>
 .slider-item {
-  margin: 0 3rem;
-  width: 30rem;
+  width: 30%;
   overflow: hidden;
 }
 .nonactive {

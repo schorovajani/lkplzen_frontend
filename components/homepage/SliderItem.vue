@@ -1,10 +1,21 @@
 <template>
-  <div
-    class="slider-item"
-    :class="{ nonactive: isNotActive }"
-    v-show="showItem"
-  >
-    <Profile :profile="profile" />
+  <div>
+    <div
+      id="big-slider"
+      class="slider-item"
+      :class="{ nonactive: isNotActive }"
+      v-if="showItem"
+    >
+      <Profile :profile="profile" />
+    </div>
+    <div
+      id="small-slider"
+      class="slider-item"
+      :class="{ nonactive: isNotActive }"
+      v-if="showItemSmall"
+    >
+      <Profile :profile="profile" />
+    </div>
   </div>
 </template>
 
@@ -42,6 +53,9 @@ export default {
         this.index === this.currentSlide + 1
       )
     },
+    showItemSmall() {
+      return this.index === this.currentSlide
+    },
     isNotActive() {
       return this.index !== this.currentSlide
     },
@@ -51,10 +65,40 @@ export default {
 
 <style lang="scss" scoped>
 .slider-item {
-  width: 30%;
   overflow: hidden;
 }
 .nonactive {
   transform: scale(0.8);
+}
+
+#big-slider {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .slider-item {
+    margin-top: 3rem;
+    width: 60vw;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+  #big-slider {
+    display: block;
+  }
+
+  #small-slider {
+    display: none;
+  }
+
+  .slider-item {
+    width: 30vw;
+  }
 }
 </style>

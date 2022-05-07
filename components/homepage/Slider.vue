@@ -115,7 +115,7 @@ export default {
   align-items: center;
   justify-content: center;
   div {
-    width: 5rem;
+    width: 12vw;
   }
   button {
     border: none;
@@ -123,11 +123,27 @@ export default {
   }
 }
 
-.btn-prev {
-  margin-left: 3rem;
+@media (min-width: 576px) {
 }
 
-.btn-next {
-  margin-right: 3rem;
+@media (min-width: 768px) {
+  .slider-button {
+    div {
+      width: 5rem;
+    }
+  }
+  .btn-prev {
+    margin-left: 3rem;
+  }
+
+  .btn-next {
+    margin-right: 3rem;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
 }
 </style>

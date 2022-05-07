@@ -48,21 +48,21 @@
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/club/start', hash: '#membership' }"
+            :to="{ path: '/start', hash: '#membership' }"
           >
             Jak se stát členem
           </nuxt-link>
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/club/start', hash: '#public' }"
+            :to="{ path: '/start', hash: '#public' }"
           >
             Nabízíme pro veřejnost
           </nuxt-link>
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/club/start', hash: '#company' }"
+            :to="{ path: '/start', hash: '#company' }"
           >
             Firemní akce
           </nuxt-link>

@@ -56,7 +56,7 @@ export default {
   a {
     text-align: right;
     align-self: flex-end;
-    color: $secondary;
+    color: $primary;
   }
 
   @media (min-width: 576px) {

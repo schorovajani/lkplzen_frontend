@@ -3,7 +3,7 @@
     <div class="nav-desktop">
       <nuxt-link to="/">Domů</nuxt-link>
       <nuxt-link to="/club">O klubu</nuxt-link>
-      <nuxt-link to="/club/start">Chci střílet z luku</nuxt-link>
+      <nuxt-link to="/start">Chci střílet z luku</nuxt-link>
       <nuxt-link to="/partners">Partneři</nuxt-link>
       <nuxt-link to="/contact">Kontakty</nuxt-link>
     </div>
@@ -100,7 +100,7 @@ button {
   }
 
   .nuxt-link-exact-active {
-    color: $secondary;
+    color: $primary;
   }
 }
 </style>

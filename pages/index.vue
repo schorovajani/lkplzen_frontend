@@ -41,7 +41,7 @@
             sapien. Nulla turpis magna, cursus sit amet, suscipit a, interdum
             id, felis. Etiam commodo dui eget wisi. Pellentesque sapien.
           </p>
-          <nuxt-link class="page-button" tag="button" to="/club/start"
+          <nuxt-link class="page-button" tag="button" to="/start"
             >Staň se členem</nuxt-link
           >
         </article>
@@ -215,7 +215,7 @@ export default {
 }
 
 #home-archery {
-  background-color: $grey;
+  background-color: $thirdy;
   color: $white;
 }
 
@@ -256,8 +256,8 @@ export default {
 }
 
 #posts {
-  background-color: $grey;
-  color: $white;
+  background-color: $secondary;
+  color: $black;
 
   div {
     width: 85%;
@@ -313,10 +313,6 @@ export default {
     }
   }
 
-  .content {
-    width: 80vw;
-  }
-
   .page-button {
     align-self: flex-end;
   }
@@ -339,7 +335,7 @@ export default {
     width: 45%;
   }
   .col-image {
-    box-shadow: 4rem 4rem #999999;
+    box-shadow: 2rem -2rem #cccccc;
   }
 
   .page-button-div {

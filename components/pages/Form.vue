@@ -244,7 +244,7 @@ export default {
     color: $white;
 
     &:hover {
-      color: $primary;
+      color: $secondary;
     }
   }
 }
@@ -271,7 +271,7 @@ export default {
   input:focus,
   textarea:focus,
   select:focus {
-    outline: 2px solid $primary;
+    outline: 2px solid $thirdy;
   }
 }
 
@@ -314,10 +314,10 @@ export default {
   margin-top: 3rem;
   button {
     border: none;
-    background-color: $grey;
+    background-color: $primary;
     border-radius: 5px;
     font-size: 1.2rem;
-    padding: 0.7rem 1rem;
+    padding: 1rem 1.3rem;
   }
 }
 

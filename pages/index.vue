@@ -215,7 +215,7 @@ export default {
 }
 
 #home-archery {
-  background-color: $grey;
+  background-color: $thirdy;
   color: $white;
 }
 
@@ -256,8 +256,8 @@ export default {
 }
 
 #posts {
-  background-color: $grey;
-  color: $white;
+  background-color: $secondary;
+  color: $black;
 
   div {
     width: 85%;

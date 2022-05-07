@@ -82,7 +82,7 @@ export default {
 }
 
 .error {
-  color: $errorAlert;
+  color: $error;
 }
 
 // .cross-icon {

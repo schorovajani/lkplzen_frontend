@@ -100,7 +100,7 @@ button {
   }
 
   .nuxt-link-exact-active {
-    color: $secondary;
+    color: $primary;
   }
 }
 </style>

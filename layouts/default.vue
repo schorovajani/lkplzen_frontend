@@ -14,7 +14,6 @@ export default {}
 .page-button {
   border: none;
   background-color: $primary;
-  color: $black;
   font-size: 1rem;
   width: 12rem;
   padding: 0.6rem;

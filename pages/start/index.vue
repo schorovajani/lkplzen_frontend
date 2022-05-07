@@ -1,10 +1,14 @@
 <template>
   <main>
     <PagesHead title="Jak začít s lukostřelbou" image="club.jpg" />
-    <section>
-      <div class="page-faq">
+    <section class="page-faq">
+      <div class="page-faq-item">
         <div class="question">
-          <!-- icon 1 -->1.
+          <img
+            class="faq-icon"
+            alt="number1"
+            src="~/assets/icons/number1.svg"
+          />
           <h3>Chceš si lukostřelbu vyzkoušet?</h3>
         </div>
         <div class="answer">
@@ -15,9 +19,13 @@
           </p>
         </div>
       </div>
-      <div class="page-faq">
+      <div class="page-faq-item">
         <div class="question">
-          <!-- icon 2 -->2.
+          <img
+            class="faq-icon"
+            alt="number2"
+            src="~/assets/icons/number2.svg"
+          />
           <h3>Líbí se ti lukostřelba a chtěl/a bys střílet pravidelně?</h3>
         </div>
         <div class="answer">
@@ -29,7 +37,7 @@
 
           <div class="sub-faq">
             <h4>Jak často střílíme?</h4>
-            <div class="answer">
+            <div class="sub-answer">
               <p>V klubu máme dvě varianty, jak často střelci střílí.</p>
               <div class="subsub-faq">
                 <h5><span>1. varianta:</span> 1x týdně</h5>
@@ -39,7 +47,7 @@
                 </p>
               </div>
               <div class="subsub-faq">
-                <h4><span>2. varianta:</span> 2x a vícekrát týdně</h4>
+                <h5><span>2. varianta:</span> 2x a vícekrát týdně</h5>
                 <p>
                   Tuto variantu volí střelci, kteří chtějí lukostřelbu
                   provozovat závodně
@@ -68,9 +76,13 @@
           </div>
         </div>
       </div>
-      <div class="page-faq">
+      <div class="page-faq-item">
         <div class="question">
-          <!-- icon 3 -->3.
+          <img
+            class="faq-icon"
+            alt="number3"
+            src="~/assets/icons/number3.svg"
+          />
           <h3>Chceš uspořádat firemní akci s lukostřelbou?</h3>
         </div>
         <div class="answer">
@@ -192,6 +204,16 @@ export default {
 .page-faq {
   margin: auto;
   width: 90%;
+  padding: 4rem 0 6rem 0;
+}
+
+.page-faq-item {
+  max-width: 55%;
+  margin: auto;
+
+  a {
+    color: $secondary;
+  }
 }
 
 h4 {
@@ -200,15 +222,60 @@ h4 {
   margin-bottom: 0.5rem;
 }
 
+.question {
+  display: flex;
+  align-items: flex-end;
+  margin: 4rem 0 1rem 0;
+
+  img {
+    margin-right: 1rem;
+  }
+}
+
+.answer {
+  margin-left: 5rem;
+}
+
+.sub-faq {
+  margin: 3rem 2rem;
+
+  h4 {
+    margin-bottom: 0.8rem;
+  }
+}
+
+.subsub-faq {
+  margin-top: 0.8rem;
+
+  h5 {
+    font-size: 1.1rem;
+
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+#public-archery {
+  background-color: $secondary;
+  color: $white;
+}
+
+#company-course {
+  background-color: $thirdy;
+  color: $white;
+}
+
 .course-terms {
   display: flex;
   flex-wrap: wrap;
 }
 
 .term-box {
-  background-color: $primary;
+  background-color: $secondary;
   padding: 1.8rem;
   margin: 0.5rem;
+  color: $white;
 }
 
 .term-time {

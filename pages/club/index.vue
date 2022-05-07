@@ -330,8 +330,8 @@ export default {
 
 <style lang="scss" scoped>
 .page-second {
+  background-color: $thirdy;
   color: $white;
-  background-color: $grey;
 }
 
 .people-menu {
@@ -357,8 +357,12 @@ export default {
   table {
     color: $black;
     width: 100%;
-    background-color: $white;
+    background-color: #e3e9ff;
     //border-radius: 10px;
+
+    a {
+      color: $thirdy;
+    }
 
     thead {
       border-bottom: 1px solid $black;
@@ -374,7 +378,7 @@ export default {
         padding: 0.6rem 1rem;
       }
       tr:nth-child(odd) {
-        background: #dddddd;
+        background: #ffffff75;
       }
     }
   }

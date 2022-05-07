@@ -3,7 +3,9 @@
     <h3>{{ title }}</h3>
     <form @submit.prevent="submit" novalidate="true">
       <div class="form-input">
-        <label>Jméno a příjmení zájemce*</label>
+        <label>{{
+          type === contact ? 'Jméno a příjmení*' : 'Jméno a příjmení zájemce*'
+        }}</label>
         <input
           :class="{ inputErr: errors.name !== '' }"
           v-model="formData.name"
@@ -16,7 +18,7 @@
         </p>
       </div>
 
-      <div class="form-input">
+      <div v-if="type !== 'contact'" class="form-input">
         <label>Věk zájemce*</label>
         <input
           :class="{ inputErr: errors.age !== '' }"
@@ -32,7 +34,7 @@
         </p>
       </div>
       <div
-        v-if="(formData.age !== '') & (formData.age < 18)"
+        v-if="formData.age !== '' && formData.age < 18 && type !== 'contact'"
         class="form-input"
       >
         <label>Jméno a příjmení zákonného zástupce</label>
@@ -75,8 +77,10 @@
         </select>
       </div>
       <div class="form-input">
-        <label>Poznámky / zpráva</label>
-        <textarea v-model="formData.message" name="message" rows="5"></textarea>
+        <label>{{
+          type === 'contact' ? 'Dotaz/zpráva' : 'Poznámky/zpráva'
+        }}</label>
+        <textarea v-model="formData.message" name="message" rows="8"></textarea>
       </div>
       <div class="form-check">
         <input v-model="gdpr" type="checkbox" name="gdpr" />
@@ -86,7 +90,9 @@
         </p>
       </div>
       <div class="form-button">
-        <button type="submit">Odeslat přihlášku</button>
+        <button type="submit">
+          {{ type === 'contact' ? 'Odeslat zprávu' : 'Odeslat přihlášku' }}
+        </button>
       </div>
     </form>
   </div>
@@ -238,6 +244,7 @@ export default {
 
   h3 {
     text-align: center;
+    margin: 1rem 0 2rem 0;
   }
 
   a {
@@ -261,7 +268,7 @@ export default {
   input,
   textarea,
   select {
-    padding: 0.5rem;
+    padding: 0.8rem;
     font-size: 1rem;
     border: none;
     border-radius: 5px;
@@ -271,7 +278,7 @@ export default {
   input:focus,
   textarea:focus,
   select:focus {
-    outline: 2px solid $thirdy;
+    outline: 2px solid $secondary;
   }
 }
 

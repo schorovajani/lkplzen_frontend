@@ -4,7 +4,7 @@
     <form @submit.prevent="submit" novalidate="true">
       <div class="form-input">
         <label>{{
-          type === contact ? 'Jméno a příjmení*' : 'Jméno a příjmení zájemce*'
+          type === 'contact' ? 'Jméno a příjmení*' : 'Jméno a příjmení zájemce*'
         }}</label>
         <input
           :class="{ inputErr: errors.name !== '' }"
@@ -241,6 +241,7 @@ export default {
   background-color: $black;
   color: $white;
   padding: 4rem;
+  border-radius: 10px;
 
   h3 {
     text-align: center;

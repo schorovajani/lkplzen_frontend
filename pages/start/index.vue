@@ -1,6 +1,6 @@
 <template>
   <main>
-    <PagesHead title="Jak začít s lukostřelbou" image="club.jpg" />
+    <PagesHead title="Jak začít s lukostřelbou" image="start.jpg" />
     <section class="page-faq">
       <div class="page-faq-item">
         <div class="question">
@@ -102,14 +102,18 @@
           type="public"
           @sendMail="sendPublic"
         />
-        <PagesCourseInfo class="page-column" :info="publicArchery">
+        <PagesCourseInfo
+          class="page-column"
+          :info="publicArchery"
+          :light="true"
+        >
           <img src="~/assets/photos/theme-photo.jpg" />
         </PagesCourseInfo>
       </div>
     </section>
     <section id="start-membership" class="page-section">
       <div class="page-layout page-cols">
-        <PagesCourseInfo class="page-column" :info="startCourse">
+        <PagesCourseInfo class="page-column" :info="startCourse" :light="false">
           <h4>Dostupné termíny:</h4>
           <div class="course-terms">
             <div
@@ -146,7 +150,11 @@
         <div class="page-column">
           <img src="~/assets/photos/theme-photo.jpg" />
         </div>
-        <PagesCourseInfo class="page-column" :info="companyCourse" />
+        <PagesCourseInfo
+          class="page-column"
+          :info="companyCourse"
+          :light="true"
+        />
       </div>
     </section>
     <!-- <button @click="showModal">TEST</button> -->
@@ -276,6 +284,7 @@ h4 {
   padding: 1.8rem;
   margin: 0.5rem;
   color: $white;
+  border-radius: 10px;
 }
 
 .term-time {

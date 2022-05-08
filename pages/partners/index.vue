@@ -1,6 +1,6 @@
 <template>
   <main>
-    <PagesHead title="Partneři" image="club.jpg" />
+    <PagesHead title="Partneři" image="partners.jpg" />
     <section class="partners-intro">
       <span
         >Všech našich partnerů si nesmírně vážíme a bez nich by se nám

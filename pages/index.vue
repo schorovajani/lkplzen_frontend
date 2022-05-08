@@ -111,7 +111,7 @@
     </section>
     <section id="posts" class="homepage-section">
       <h3>Aktuality</h3>
-      <HomepagePosts :posts="posts" />
+      <HomepagePostList :posts="posts" />
       <div class="page-button-div">
         <nuxt-link class="page-button" tag="button" to="/competetions/posts"
           >Více aktualit</nuxt-link

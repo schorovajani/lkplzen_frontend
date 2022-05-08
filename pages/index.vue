@@ -107,16 +107,18 @@
     </section>
     <section id="people" class="homepage-section">
       <h3>Lidé v klubu</h3>
-      <HomepageSlider :profiles="profiles" />
+      <HomepageSlider v-if="profiles" :profiles="profiles" />
+      <p v-else>Nebyly nalezeny žádné profily</p>
     </section>
     <section id="posts" class="homepage-section">
       <h3>Aktuality</h3>
-      <HomepagePostList :posts="posts" />
-      <div class="page-button-div">
+      <HomepagePostList v-if="posts" :posts="posts" />
+      <div v-if="posts" class="page-button-div">
         <nuxt-link class="page-button" tag="button" to="/competetions/posts"
           >Více aktualit</nuxt-link
         >
       </div>
+      <p v-else>Nebyly nalezeny žádné aktuality</p>
     </section>
     <section id="partners" class="homepage-section">
       <h3>Podporují nás</h3>

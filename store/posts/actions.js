@@ -4,6 +4,7 @@ export default {
     const postQuery = qs.stringify(
       {
         sort: 'publishedAt:desc',
+        populate: '*',
       },
       {
         encodeValuesOnly: true,

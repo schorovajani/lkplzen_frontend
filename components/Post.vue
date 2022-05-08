@@ -1,6 +1,8 @@
 <template>
   <div class="post">
-    <img class="post-thumb" src="~/assets/photos/theme-photo.jpg" />
+    <div class="post-thumb">
+      <img :src="photoURL" />
+    </div>
     <div class="post-info">
       <h4>{{ title }}</h4>
       <p>{{ shortBody }}</p>
@@ -17,12 +19,21 @@ export default {
     title: String,
     slug: String,
     body: String,
+    photo: String,
   },
   computed: {
     shortBody() {
       return this.body.length > 150
         ? this.body.slice(0, 150) + '...'
         : this.body
+    },
+    photoURL() {
+      if (this.photo) {
+        return `http://localhost:1337${this.photo}`
+      } else {
+        const num = Math.floor(Math.random() * 2)
+        return require(`~/assets/postPhotos/photo-${num}.jpg`)
+      }
     },
   },
 }
@@ -32,10 +43,18 @@ export default {
 .post {
   color: $black;
   background-color: $white;
+
+  border-radius: 10px;
 }
 
 .post-thumb {
   width: 100%;
+  max-height: 15rem;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  img {
+    width: 100%;
+  }
 }
 
 .post-info {
@@ -56,7 +75,7 @@ export default {
   a {
     text-align: right;
     align-self: flex-end;
-    color: $primary;
+    color: $thirdy;
   }
 
   @media (min-width: 576px) {

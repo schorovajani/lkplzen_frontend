@@ -1,11 +1,16 @@
 <template>
   <div class="posts-container">
-    <HomepagePostItem
+    <Post
       v-for="post in shortPosts"
       :key="post.id"
       :title="post.attributes.titlePost"
       :slug="post.attributes.slug"
       :body="post.attributes.body"
+      :photo="
+        post.attributes.titlePhoto.data
+          ? post.attributes.titlePhoto.data.attributes.url
+          : ''
+      "
     />
   </div>
 </template>
@@ -17,6 +22,7 @@ export default {
   },
   computed: {
     shortPosts() {
+      console.log(this.posts)
       return this.posts.slice(0, 3)
     },
   },

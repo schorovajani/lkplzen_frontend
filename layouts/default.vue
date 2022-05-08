@@ -11,6 +11,9 @@ export default {}
 </script>
 
 <style lang="scss">
+main {
+  overflow: hidden;
+}
 .page-button {
   border: none;
   background-color: $primary;

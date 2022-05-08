@@ -8,20 +8,9 @@
       <nuxt-link to="/contact">Kontakty</nuxt-link>
     </div>
     <button class="nav-icon" @click="showMenu">
-      <svg
-        width="27"
-        height="25"
-        viewBox="0 0 27 25"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 1.13636C0 0.508773 0.377764 0 0.84375 0H26.1562C26.6222 0 27 0.508773 27 1.13636C27 1.76395 26.6222 2.27273 26.1562 2.27273H0.84375C0.377764 2.27273 0 1.76395 0 1.13636ZM0 12.5C0 11.8724 0.377764 11.3636 0.84375 11.3636H26.1562C26.6222 11.3636 27 11.8724 27 12.5C27 13.1276 26.6222 13.6364 26.1562 13.6364H0.84375C0.377764 13.6364 0 13.1276 0 12.5ZM0.84375 22.7273C0.377764 22.7273 0 23.2361 0 23.8636C0 24.4911 0.377764 25 0.84375 25H26.1562C26.6222 25 27 24.4911 27 23.8636C27 23.2361 26.6222 22.7273 26.1562 22.7273H0.84375Z"
-          fill="#212121"
-        />
-      </svg>
+      <img alt="menu-icon" src="~/assets/icons/menu.svg" />
     </button>
-    <transition name="fade">
+    <transition name="trans">
       <UiHamburgerMenu v-if="show" @hide="hideMenu" />
     </transition>
   </nav>
@@ -46,14 +35,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
+.trans-enter-active,
+.trans-leave-active {
   transition: all 0.5s ease;
 }
-.fade-enter,
-.fade-leave-to {
-  transform: translateX(80vw);
-  opacity: 0;
+.trans-enter,
+.trans-leave-to {
+  transform: translateX(100vw);
+  opacity: 0.4;
 }
 
 nav {
@@ -67,6 +56,10 @@ nav {
 
 button {
   all: unset;
+  cursor: pointer;
+  img {
+    height: 1.3rem;
+  }
 }
 
 @media (min-width: 576px) {

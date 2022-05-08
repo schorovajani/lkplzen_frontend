@@ -54,7 +54,7 @@ header {
   align-items: center;
 
   img {
-    height: 4rem;
+    height: 3.7rem;
   }
 }
 

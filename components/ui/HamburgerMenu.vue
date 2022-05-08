@@ -2,18 +2,7 @@
   <div class="menu-overlay">
     <div class="menu-top">
       <button @click="$emit('hide')">
-        <svg
-          width="27"
-          height="25"
-          viewBox="0 0 27 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0.199323 0.44935L0.329508 0.3051C0.720018 -0.0565044 1.32624 -0.0966709 1.76469 0.184559L1.92048 0.3051L13.5 11.0271L25.0794 0.3051C25.47 -0.0565044 26.0762 -0.0966709 26.5147 0.184559L26.6706 0.3051C27.061 0.666684 27.1044 1.228 26.8007 1.63398L26.6706 1.77823L15.0908 12.5L26.6706 23.2217C27.061 23.5833 27.1044 24.1446 26.8007 24.5506L26.6706 24.695C26.28 25.0565 25.6739 25.0967 25.2353 24.8154L25.0794 24.695L13.5 13.9729L1.92048 24.695C1.52997 25.0565 0.923756 25.0967 0.485298 24.8154L0.329508 24.695C-0.0610248 24.3333 -0.104405 23.7721 0.199323 23.3661L0.329508 23.2217L11.9093 12.5L0.329508 1.77823C-0.0610248 1.41664 -0.104405 0.85533 0.199323 0.44935L0.329508 0.3051L0.199323 0.44935Z"
-            fill="white"
-          />
-        </svg>
+        <img alt="cross-icon" src="~/assets/icons/cross-light.svg" />
       </button>
     </div>
     <div class="menu-body">
@@ -34,35 +23,35 @@
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/club', hash: '#about' }"
+            :to="{ path: '/club', hash: '#about-club' }"
           >
             O klubu
           </nuxt-link>
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/club', hash: '#people' }"
+            :to="{ path: '/club', hash: '#club-people' }"
           >
             Lidé v klubu
           </nuxt-link>
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/start', hash: '#membership' }"
+            :to="{ path: '/start', hash: '#start-membership' }"
           >
             Jak se stát členem
           </nuxt-link>
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/start', hash: '#public' }"
+            :to="{ path: '/start', hash: '#public-archery' }"
           >
             Nabízíme pro veřejnost
           </nuxt-link>
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/start', hash: '#company' }"
+            :to="{ path: '/start', hash: '#company-course' }"
           >
             Firemní akce
           </nuxt-link>
@@ -87,14 +76,14 @@
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/archery', hash: '#what' }"
+            :to="{ path: '/archery', hash: '#archery' }"
           >
             O lukostřelbě
           </nuxt-link>
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/archery', hash: '#age' }"
+            :to="{ path: '/archery', hash: '#age-category' }"
           >
             Věkové kategorie
           </nuxt-link>
@@ -111,7 +100,7 @@
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/trainings', hash: '#where' }"
+            :to="{ path: '/trainings', hash: '#place-time' }"
           >
             Kdy a kde trénujeme
           </nuxt-link>
@@ -169,7 +158,7 @@
           <nuxt-link
             @click.native="$emit('hide')"
             class="menu-item"
-            :to="{ path: '/members', hash: '#memberscamp' }"
+            :to="{ path: '/members', hash: '#members-camp' }"
           >
             Soustředění
           </nuxt-link>
@@ -188,7 +177,7 @@
             @click.native="$emit('hide')"
             class="menu-title"
             to="/partners"
-            >Partneři a sponzoři</nuxt-link
+            >Partneři</nuxt-link
           >
         </div>
         <div class="menu-box">
@@ -269,10 +258,14 @@ export default {}
 .menu-top {
   display: flex;
   justify-content: flex-end;
-  margin: 2.5rem 3rem;
+  margin: 2.5rem 4.1rem;
 
   button {
     all: unset;
+    cursor: pointer;
+    img {
+      height: 1.5rem;
+    }
   }
 }
 

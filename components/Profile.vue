@@ -40,6 +40,8 @@ export default {
   color: $white;
   padding: 4rem;
 
+  border-radius: 10px;
+
   display: flex;
   flex-direction: column;
 

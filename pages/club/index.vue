@@ -1,7 +1,7 @@
 <template>
   <main>
     <PagesHead title="Klub 1.LK Plzeň" image="club.jpg" />
-    <section class="page-section">
+    <section id="about-club" class="page-section">
       <div class="page-layout page-cols">
         <article class="page-column">
           <h3>O klubu</h3>
@@ -69,7 +69,7 @@
         </article>
       </div>
     </section>
-    <section class="page-section page-second">
+    <section id="club-people" class="page-section page-second">
       <div class="page-layout page-cols">
         <div class="page-column">
           <h3>Lidé v klubu</h3>
@@ -393,4 +393,19 @@ export default {
 .hide {
   display: none;
 }
+
+// @keyframes slideInFromLeft {
+//   0% {
+//     transform: translateX(10%);
+//   }
+//   100% {
+//     transform: translateX(0);
+//   }
+// }
+
+// .diy-img {
+//   img {
+//     animation: 1s ease-out 0s 1 slideInFromLeft;
+//   }
+// }
 </style>

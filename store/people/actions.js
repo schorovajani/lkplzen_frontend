@@ -2,7 +2,7 @@ export default {
   async loadMembers(context) {
     let response
     try {
-      response = await this.$axios.$get(`/members`)
+      response = await this.$axios.$get(`/api/members`)
     } catch (err) {
       console.log(err)
     }
@@ -22,7 +22,7 @@ export default {
 
     let response
     try {
-      response = await this.$axios.$get(`/coaches?${query}`)
+      response = await this.$axios.$get(`/api/coaches?${query}`)
     } catch (err) {
       console.log(err)
     }
@@ -42,7 +42,7 @@ export default {
 
     let response
     try {
-      response = await this.$axios.$get(`/committees?${query}`)
+      response = await this.$axios.$get(`/api/committees?${query}`)
       // console.log(response)
     } catch (err) {
       console.log(err)
@@ -64,7 +64,7 @@ export default {
 
     let response
     try {
-      response = await this.$axios.$get(`/league-teams?${query}`)
+      response = await this.$axios.$get(`/api/league-teams?${query}`)
     } catch (err) {
       console.log(err)
     }

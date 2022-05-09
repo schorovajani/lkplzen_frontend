@@ -12,7 +12,7 @@ export default {
 
     let response
     try {
-      response = await this.$axios.$get(`/public-archery?${postQuery}`)
+      response = await this.$axios.$get(`/api/public-archery?${postQuery}`)
       console.log(response)
     } catch (err) {
       console.log(err)
@@ -23,7 +23,7 @@ export default {
   async startMembership(context) {
     let response
     try {
-      response = await this.$axios.$get(`/start-membership`)
+      response = await this.$axios.$get(`/api/start-membership`)
       console.log(response)
     } catch (err) {
       console.log(err)
@@ -45,7 +45,7 @@ export default {
 
     let response
     try {
-      response = await this.$axios.$get(`/start-course?${postQuery}`)
+      response = await this.$axios.$get(`/api/start-course?${postQuery}`)
       console.log(response)
     } catch (err) {
       console.log(err)
@@ -67,7 +67,7 @@ export default {
 
     let response
     try {
-      response = await this.$axios.$get(`/company-course?${postQuery}`)
+      response = await this.$axios.$get(`/api/company-course?${postQuery}`)
       console.log(response)
     } catch (err) {
       console.log(err)

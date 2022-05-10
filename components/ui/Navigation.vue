@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="nav-desktop">
-      <nuxt-link to="/">Domů</nuxt-link>
+      <nuxt-link to="/" exact>Domů</nuxt-link>
       <nuxt-link to="/club">O klubu</nuxt-link>
       <nuxt-link to="/start">Chci střílet z luku</nuxt-link>
       <nuxt-link to="/partners">Partneři</nuxt-link>
@@ -92,7 +92,7 @@ button {
     margin-left: 4rem;
   }
 
-  .nuxt-link-exact-active {
+  .nuxt-link-active {
     color: $primary;
   }
 }

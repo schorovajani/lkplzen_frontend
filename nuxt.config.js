@@ -56,7 +56,7 @@ export default {
   },
 
   axios: {
-    baseURL: 'http://localhost:1337',
+    baseURL: 'https://lkplzen-bp.herokuapp.com',
   },
 
   publicRuntimeConfig: {

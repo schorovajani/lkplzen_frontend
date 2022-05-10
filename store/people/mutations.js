@@ -17,7 +17,6 @@ export default {
       tmpArray.push(item)
     })
     state.coaches = tmpArray
-    state.loadCoaches = true
   },
 
   setCommittee(state, committee) {
@@ -34,7 +33,6 @@ export default {
       tmpArray.push(item)
     })
     state.committee = tmpArray
-    state.loadCommittee = true
   },
 
   setLeague(state, league) {
@@ -49,8 +47,6 @@ export default {
     state.youthLeague = league.filter(
       (team) => team.attributes.type === 'Mládež'
     )[0].attributes.members.data
-
-    state.loadLeague = true
   },
 }
 

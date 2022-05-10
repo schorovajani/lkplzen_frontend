@@ -19,14 +19,4 @@ export default {
   youthLeague(state) {
     return state.youthLeague
   },
-
-  isCoachesLoaded(state) {
-    return state.loadCoaches
-  },
-  isCommitteeLoaded(state) {
-    return state.loadCommittee
-  },
-  isLeagueLoaded(state) {
-    return state.loadLeague
-  },
 }

@@ -5,8 +5,4 @@ export default () => ({
   menLeague: [],
   womenLeague: [],
   youthLeague: [],
-
-  loadCoaches: false,
-  loadCommittee: false,
-  loadLeague: false,
 })

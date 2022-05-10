@@ -113,29 +113,37 @@
     </section>
     <section id="start-membership" class="page-section">
       <div class="page-layout page-cols">
-        <PagesCourseInfo class="page-column" :info="startCourse" :light="false">
-          <h4>Dostupné termíny:</h4>
-          <div class="course-terms">
-            <div
-              class="term-box"
-              v-for="term in startCourse.courseTerms"
-              :key="term.id"
-            >
-              <div class="term-time">
-                <span class="bold">První termín: </span>
-                <span>{{ term.firstTime }}</span>
-              </div>
-              <div class="term-time">
-                <span class="bold">Další termíny: </span>
-                <ul>
-                  <li>{{ term.secondTime }}</li>
-                  <li>{{ term.thirdTime }}</li>
-                  <li>{{ term.fourthTime }}</li>
-                </ul>
+        <div class="page-column">
+          <h3>{{ startMembership.title }}</h3>
+          <p>{{ startMembership.body }}</p>
+          <PagesCourseInfo
+            class="start-course"
+            :info="startCourse"
+            :light="false"
+          >
+            <h4>Dostupné termíny:</h4>
+            <div class="course-terms">
+              <div
+                class="term-box"
+                v-for="term in startCourse.courseTerms"
+                :key="term.id"
+              >
+                <div class="term-time">
+                  <span class="bold">První termín: </span>
+                  <span>{{ term.firstTime }}</span>
+                </div>
+                <div class="term-time">
+                  <span class="bold">Další termíny: </span>
+                  <ul>
+                    <li>{{ term.secondTime }}</li>
+                    <li>{{ term.thirdTime }}</li>
+                    <li>{{ term.fourthTime }}</li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </PagesCourseInfo>
+          </PagesCourseInfo>
+        </div>
         <PagesForm
           class="page-column"
           title="Přihlaš se na kurz lukostřelby pro začátečníky"
@@ -157,7 +165,6 @@
         />
       </div>
     </section>
-    <!-- <button @click="showModal">TEST</button> -->
     <UiModal />
   </main>
 </template>
@@ -168,11 +175,10 @@ export default {
     publicArchery() {
       return this.$store.getters['pages/publicArchery']
     },
-    // startMembership() {
-    //   return this.$store.getters['pages/startMembership']
-    // },
+    startMembership() {
+      return this.$store.getters['pages/startMembership']
+    },
     startCourse() {
-      console.log(this.$store.getters['pages/startCourse'])
       return this.$store.getters['pages/startCourse']
     },
     companyCourse() {
@@ -195,13 +201,10 @@ export default {
       }
       this.$store.dispatch('messages/sendMessageStart', message)
     },
-    showModal() {
-      this.$store.dispatch('modals/showModal')
-    },
   },
   created() {
     this.$store.dispatch('pages/publicArchery')
-    // this.$store.dispatch('pages/startMembership')
+    this.$store.dispatch('pages/startMembership')
     this.$store.dispatch('pages/startCourse')
     this.$store.dispatch('pages/companyCourse')
   },
@@ -299,5 +302,9 @@ h4 {
 .bold {
   font-weight: 600;
   margin-right: 0.3rem;
+}
+
+.start-course {
+  margin-top: 2rem;
 }
 </style>

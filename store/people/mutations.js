@@ -25,7 +25,7 @@ export default {
       let member = c.attributes.member.data.attributes
       let item = {
         id: c.id,
-        role: c.attributes.committeeRole,
+        role: c.attributes.committeRole,
         name: member.name,
         slug: member.slug,
         haveProfile: member.profile.data !== null,

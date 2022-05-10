@@ -13,7 +13,7 @@ export default {
 
     let response
     try {
-      response = await this.$axios.$get(`/posts?${postQuery}`)
+      response = await this.$axios.$get(`/api/posts?${postQuery}`)
     } catch (err) {
       console.log(err)
     }

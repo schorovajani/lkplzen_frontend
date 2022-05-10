@@ -1,6 +1,6 @@
 <template>
   <main>
-    <PagesHead title="Kontakt" image="club.jpg" />
+    <PagesHead title="Kontakt" image="contact.jpg" />
     <section id="map" class="page-section">
       <div class="page-cols page-layout">
         <div class="page-column">
@@ -145,6 +145,7 @@ export default {
 
 p {
   margin: 0.5rem 0;
+  text-align: left;
 
   span {
     font-weight: 600;

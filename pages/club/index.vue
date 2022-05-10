@@ -1,7 +1,7 @@
 <template>
   <main>
     <PagesHead title="Klub 1.LK Plzeň" image="club.jpg" />
-    <section class="page-section">
+    <section id="about-club" class="page-section">
       <div class="page-layout page-cols">
         <article class="page-column">
           <h3>O klubu</h3>
@@ -69,7 +69,7 @@
         </article>
       </div>
     </section>
-    <section class="page-section page-second">
+    <section id="club-people" class="page-section page-second">
       <div class="page-layout page-cols">
         <div class="page-column">
           <h3>Lidé v klubu</h3>
@@ -245,7 +245,9 @@
             </div>
           </div>
         </div>
-        <div class="page-column"></div>
+        <div class="page-column profile-list">
+          <!-- <PagesProfileList :profiles="profiles" /> -->
+        </div>
       </div>
     </section>
   </main>
@@ -260,43 +262,25 @@ export default {
   },
   computed: {
     members() {
-      // console.log(this.$store.getters['people/members'])
       return this.$store.getters['people/members']
     },
     coaches() {
-      if (this.$store.getters['people/isCoachesLoaded']) {
-        return this.$store.getters['people/coaches']
-      } else {
-        return []
-      }
+      return this.$store.getters['people/coaches']
     },
     committee() {
-      if (this.$store.getters['people/isCommitteeLoaded']) {
-        return this.$store.getters['people/committee']
-      } else {
-        return []
-      }
+      return this.$store.getters['people/committee']
     },
     menLeague() {
-      if (this.$store.getters['people/isLeagueLoaded']) {
-        return this.$store.getters['people/menLeague']
-      } else {
-        return []
-      }
+      return this.$store.getters['people/menLeague']
     },
     womenLeague() {
-      if (this.$store.getters['people/isLeagueLoaded']) {
-        return this.$store.getters['people/womenLeague']
-      } else {
-        return []
-      }
+      return this.$store.getters['people/womenLeague']
     },
     youthLeague() {
-      if (this.$store.getters['people/isLeagueLoaded']) {
-        return this.$store.getters['people/youthLeague']
-      } else {
-        return []
-      }
+      return this.$store.getters['people/youthLeague']
+    },
+    profiles() {
+      return this.$store.getters['profiles/homepageProfiles']
     },
   },
   methods: {
@@ -307,23 +291,21 @@ export default {
       this.$store.dispatch('people/loadMembers')
     },
     loadCoaches() {
-      if (!this.$store.getters['people/isCoachesLoaded']) {
-        this.$store.dispatch('people/loadCoaches')
-      }
+      this.$store.dispatch('people/loadCoaches')
     },
     loadCommittee() {
-      if (!this.$store.getters['people/isCommitteeLoaded']) {
-        this.$store.dispatch('people/loadCommittee')
-      }
+      this.$store.dispatch('people/loadCommittee')
     },
     loadLeague() {
-      if (!this.$store.getters['people/isLeagueLoaded']) {
-        this.$store.dispatch('people/loadLeague')
-      }
+      this.$store.dispatch('people/loadLeague')
     },
   },
   created() {
     this.loadMembers()
+    this.loadCoaches()
+    this.loadCommittee()
+    this.loadLeague()
+    this.$store.dispatch('profiles/getHomepageProfiles')
   },
 }
 </script>
@@ -393,4 +375,24 @@ export default {
 .hide {
   display: none;
 }
+
+.profile-list {
+  justify-content: center;
+  align-items: center;
+}
+
+// @keyframes slideInFromLeft {
+//   0% {
+//     transform: translateX(10%);
+//   }
+//   100% {
+//     transform: translateX(0);
+//   }
+// }
+
+// .diy-img {
+//   img {
+//     animation: 1s ease-out 0s 1 slideInFromLeft;
+//   }
+// }
 </style>

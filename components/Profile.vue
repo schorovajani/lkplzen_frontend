@@ -21,7 +21,7 @@ export default {
     imgUrl() {
       const url = this.profile.profilePhoto.data.attributes.url
       //console.log(url)
-      return `http://localhost:1337${url}`
+      return `${this.$axios.defaults.baseURL}${url}`
     },
     moreUrl() {
       console.log(this.profile)

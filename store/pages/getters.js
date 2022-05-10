@@ -14,4 +14,12 @@ export default {
   companyCourse(state) {
     return state.companyCourse
   },
+
+  sportCamp(state) {
+    return state.sportCamp
+  },
+
+  forMember(state) {
+    return state.forMember
+  },
 }

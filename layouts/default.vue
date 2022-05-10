@@ -20,9 +20,14 @@ main {
   font-size: 1rem;
   width: 12rem;
   padding: 0.6rem;
+  cursor: pointer;
 
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+  &:hover {
+    color: $white;
+  }
 }
 
 h3 {

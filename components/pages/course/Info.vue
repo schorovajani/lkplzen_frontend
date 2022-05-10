@@ -1,7 +1,7 @@
 <template>
   <article>
     <h3>{{ info.title }}</h3>
-    <p>{{ info.body }}</p>
+    <div v-html="$md.render(`${info.body}`)"></div>
     <ul v-if="info.moreInfo !== undefined" class="more-info">
       <li v-if="info.moreInfo.courseWhen">
         {{ info.moreInfo.courseWhen }}
@@ -20,11 +20,23 @@
       <p>{{ info.contact.contactInfo }}</p>
       <dl>
         <dt>{{ info.contact.contactPerson }}</dt>
-        <dd class="email-icon">
-          {{ info.contact.contactEmail }}
+        <dd class="contact-icon">
+          <img
+            v-if="light"
+            alt="mail-icon"
+            src="~/assets/icons/mail-light.svg"
+          />
+          <img v-else alt="mail-icon" src="~/assets/icons/mail.svg" />
+          <span>{{ info.contact.contactEmail }}</span>
         </dd>
-        <dd class="phone-icon">
-          {{ info.contact.contactPhone }}
+        <dd class="contact-icon">
+          <img
+            v-if="light"
+            alt="phone-icon"
+            src="~/assets/icons/phone-light.svg"
+          />
+          <img v-else alt="phone-icon" src="~/assets/icons/phone.svg" />
+          <span>{{ info.contact.contactPhone }}</span>
         </dd>
       </dl>
     </div>
@@ -35,6 +47,7 @@
 export default {
   props: {
     info: Object,
+    light: Boolean,
   },
 }
 </script>
@@ -46,7 +59,7 @@ export default {
   margin: 0 3rem;
 
   li {
-    margin: 0.8rem 0;
+    margin: 1rem 0;
   }
 }
 
@@ -66,15 +79,16 @@ export default {
 
     dd {
       margin: 0.8rem;
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 1.3rem;
+      }
+      span {
+        margin-left: 1rem;
+      }
     }
   }
-}
-
-.email-icon::before {
-  content: url('~/assets/icons/mail.svg');
-}
-
-.phone-icon::before {
-  content: url('~/assets/icons/phone.svg');
 }
 </style>

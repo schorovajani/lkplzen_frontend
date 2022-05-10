@@ -3,4 +3,6 @@ export default () => ({
   startMembership: {},
   startCourse: {},
   companyCourse: {},
+  sportCamp: {},
+  forMember: {},
 })

@@ -16,7 +16,7 @@ export default {
     )
     let response
     try {
-      response = await this.$axios.$get(`/profiles?${profileQuery}`)
+      response = await this.$axios.$get(`/api/profiles?${profileQuery}`)
     } catch (err) {
       console.log(err)
     }

@@ -29,7 +29,7 @@ export default {
     },
     photoURL() {
       if (this.photo) {
-        return `http://localhost:1337${this.photo}`
+        return `${this.$axios.defaults.baseURL}${this.photo}`
       } else {
         const num = Math.floor(Math.random() * 2)
         return require(`~/assets/postPhotos/photo-${num}.jpg`)

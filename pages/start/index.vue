@@ -219,7 +219,7 @@ export default {
 }
 
 .page-faq-item {
-  max-width: 55%;
+  max-width: 90%;
   margin: auto;
 
   a {
@@ -306,5 +306,23 @@ h4 {
 
 .start-course {
   margin-top: 2rem;
+}
+
+@media (min-width: 576px) {
+  .page-faq-item {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-faq-item {
+    max-width: 55%;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
 }
 </style>

@@ -240,7 +240,7 @@ export default {
   justify-content: space-evenly;
   background-color: $black;
   color: $white;
-  padding: 4rem;
+  padding: 1rem;
   border-radius: 10px;
 
   h3 {
@@ -337,5 +337,20 @@ export default {
   margin: 0.2rem 0;
   font-size: 0.8rem;
   color: $error;
+}
+
+@media (min-width: 576px) {
+  .form {
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
 }
 </style>

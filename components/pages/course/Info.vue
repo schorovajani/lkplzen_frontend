@@ -1,7 +1,7 @@
 <template>
   <article>
     <h3>{{ info.title }}</h3>
-    <p>{{ info.body }}</p>
+    <div v-html="$md.render(`${info.body}`)"></div>
     <ul v-if="info.moreInfo !== undefined" class="more-info">
       <li v-if="info.moreInfo.courseWhen">
         {{ info.moreInfo.courseWhen }}
@@ -59,7 +59,7 @@ export default {
   margin: 0 3rem;
 
   li {
-    margin: 0.8rem 0;
+    margin: 1rem 0;
   }
 }
 

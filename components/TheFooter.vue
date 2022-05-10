@@ -115,7 +115,9 @@
         </div>
       </div>
       <div class="footer-col footer-partners">
-        <div class="footer-box logo">logo</div>
+        <div class="footer-box logo">
+          <img alt="logo-white" src="~/assets/logo-text-white.svg" />
+        </div>
         <div class="footer-box">
           <h3>Hlavní partneři</h3>
           <div class="partners">
@@ -125,9 +127,8 @@
               rel="noopener noreferrer"
             >
               <img
-                src="~/assets/partners/sportovni-plzen.svg"
+                src="~/assets/partners/sportovni-plzen.png"
                 alt="sportovni-plzen"
-                width="100"
               />
             </a>
             <a
@@ -135,10 +136,16 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+              <img src="~/assets/partners/petrol.png" alt="petrol-plzen" />
+            </a>
+            <a
+              href="https://www.sudop.cz/cs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
-                src="~/assets/partners/petrol.svg"
-                alt="sportovni-plzen"
-                width="100"
+                src="~/assets/partners/sudop-praha-white.png"
+                alt="sudop-praha"
               />
             </a>
           </div>
@@ -158,7 +165,7 @@ export default {}
 
 <style lang="scss" scoped>
 footer {
-  background-color: #302f13;
+  background-color: #282823;
 }
 
 .footer-main {
@@ -263,6 +270,20 @@ h3 {
   }
 }
 
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  a {
+    margin: 1rem 0;
+  }
+
+  img {
+    height: 2rem;
+  }
+}
+
 @media (min-width: 576px) {
 }
 
@@ -285,6 +306,10 @@ h3 {
   }
   .logo {
     display: block;
+
+    img {
+      height: 3rem;
+    }
   }
 }
 </style>

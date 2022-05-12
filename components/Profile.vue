@@ -23,8 +23,9 @@ export default {
      * Retrieve url of profile photo
      */
     imgUrl() {
-      const url = this.profile.profilePhoto.data.attributes.url
-      return `${this.$axios.defaults.baseURL}${url}`
+      // const url = this.profile.profilePhoto.data.attributes.url
+      // return `${this.$axios.defaults.baseURL}${url}`
+      return this.profile.profilePhoto.data.attributes.url
     },
 
     /*

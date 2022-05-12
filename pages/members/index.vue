@@ -69,7 +69,7 @@
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                :href="`${$axios.defaults.baseURL}${document.attributes.url}`"
+                :href="document.attributes.url"
                 >{{ document.attributes.caption }}</a
               >
             </li>

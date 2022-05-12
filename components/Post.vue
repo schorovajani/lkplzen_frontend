@@ -37,7 +37,8 @@ export default {
      */
     photoURL() {
       if (this.photo) {
-        return `${this.$axios.defaults.baseURL}${this.photo}`
+        // return `${this.$axios.defaults.baseURL}${this.photo}`
+        return this.photo
       } else {
         const num = Math.floor(Math.random() * 2)
         return require(`~/assets/postPhotos/photo-${num}.jpg`)

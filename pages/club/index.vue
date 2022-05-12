@@ -246,7 +246,7 @@
           </div>
         </div>
         <div class="page-column profile-list">
-          <!-- <PagesProfileList :profiles="profiles" /> -->
+          <PagesProfileSlide :profiles="profiles" />
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 <template>
+  <!-- profiles on club page -->
   <div class="slide-container">
     <vueper-slides
       autoplay

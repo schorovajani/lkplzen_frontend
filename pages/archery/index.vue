@@ -1,6 +1,9 @@
 <template>
   <main>
+    <!-- intro -->
     <PagesHead title="Lukostřelba" image="start.jpg" />
+
+    <!-- about archery -->
     <section id="archery" class="page-section">
       <div class="page-cols page-layout">
         <article class="page-column">
@@ -31,6 +34,8 @@
         </div>
       </div>
     </section>
+
+    <!-- age categories -->
     <section id="age-category" class="page-section">
       <div class="page-layout">
         <h3>Věkové kategorie</h3>

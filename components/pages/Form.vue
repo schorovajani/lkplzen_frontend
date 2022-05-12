@@ -1,4 +1,5 @@
 <template>
+  <!-- every form on web -->
   <div class="form">
     <h3>{{ title }}</h3>
     <form @submit.prevent="submit" novalidate="true">
@@ -143,6 +144,9 @@ export default {
     },
   },
   methods: {
+    /*
+     * Call validation and emit function from parent component
+     */
     submit() {
       console.log(this.formData)
       this.validate()

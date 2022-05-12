@@ -1,4 +1,5 @@
 <template>
+  <!-- profile card with a little information -->
   <div class="profile-container">
     <div class="profile-head">
       <img :src="imgUrl" alt="profile-photo" />
@@ -18,15 +19,25 @@ export default {
     profile: Object,
   },
   computed: {
+    /*
+     * Retrieve url of profile photo
+     */
     imgUrl() {
       const url = this.profile.profilePhoto.data.attributes.url
-      //console.log(url)
       return `${this.$axios.defaults.baseURL}${url}`
     },
+
+    /*
+     * Link to member profile
+     */
     moreUrl() {
       console.log(this.profile)
       return `/club/people/${this.profile.member.data.attributes.slug}`
     },
+
+    /*
+     * Retrieve member's name
+     */
     name() {
       return this.profile.member.data.attributes.name
     },

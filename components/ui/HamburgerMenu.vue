@@ -1,4 +1,5 @@
 <template>
+  <!-- big menu -->
   <div class="menu-overlay">
     <div class="menu-top">
       <button @click="$emit('hide')">

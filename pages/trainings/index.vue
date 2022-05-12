@@ -1,9 +1,12 @@
 <template>
   <main>
+    <!-- intro -->
     <PagesHead title="Tréninky" image="trainings.jpg" />
+    <!-- start information on page -->
     <section class="page-section training-info">
       <p>doplňující Informace</p>
     </section>
+    <!-- information about summer trainings -->
     <section id="summer" class="page-section">
       <div class="page-layout">
         <div class="page-cols">
@@ -20,6 +23,7 @@
         </div>
       </div>
     </section>
+    <!-- information about winter trainings -->
     <section id="winter" class="page-section">
       <div class="page-layout">
         <div class="page-cols">
@@ -36,6 +40,7 @@
         </div>
       </div>
     </section>
+    <!-- information about camp for public -->
     <section id="camp" class="page-section">
       <div class="page-cols page-layout">
         <div class="page-column">

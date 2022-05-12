@@ -2,7 +2,6 @@
   <header :class="{ scrolled: isScrolled }">
     <div class="logo" :class="{ scrolllogo: isScrolled }">
       <img src="~/assets/logo-text.svg" alt="logo" />
-      <!-- <h1 class="header-head">1. lukostřelecký klub<br />Plzeň 1935</h1> -->
     </div>
     <UiNavigation />
   </header>
@@ -17,15 +16,26 @@ export default {
     }
   },
   methods: {
+    /*
+     * Observe scroll position from top of page
+     * Set status to change header style
+     */
     updateScroll() {
       this.scrollPosition = window.scrollY
       this.isScrolled = this.scrollPosition > 50
     },
   },
 
+  /*
+   *  Add event listener to observe scroll position and its change
+   */
   mounted() {
     window.addEventListener('scroll', this.updateScroll)
   },
+
+  /*
+   *   Remove event listener to observe scroll position and its change
+   */
   unmounted() {
     window.removeEventListener('scroll', this.updateScroll)
   },

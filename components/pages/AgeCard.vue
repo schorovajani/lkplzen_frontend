@@ -1,4 +1,5 @@
 <template>
+  <!-- card of age category -->
   <div class="age-card">
     <span class="category">{{ item.category }}</span>
     <span class="age"> {{ item.age }}</span>

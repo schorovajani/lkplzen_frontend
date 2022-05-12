@@ -1,6 +1,9 @@
 <template>
   <main>
+    <!-- intro -->
     <PagesHead title="Kontakt" image="contact.jpg" />
+
+    <!-- where to find club -->
     <section id="map" class="page-section">
       <div class="page-cols page-layout">
         <div class="page-column">
@@ -34,6 +37,8 @@
         </div>
       </div>
     </section>
+
+    <!-- contacts and contact form -->
     <section id="contacts" class="page-section">
       <div class="page-cols page-layout">
         <PagesForm
@@ -88,12 +93,17 @@
         </div>
       </div>
     </section>
+    <!-- import of modal window -->
+    <UiModal />
   </main>
 </template>
 
 <script>
 export default {
   methods: {
+    /*
+     * Call function for sending data from contact form
+     */
     sendMessage(data) {
       console.log('send contact')
       const message = {

@@ -1,13 +1,13 @@
 export default {
+  /*
+   * Send message to backend from form which is on section public archery
+   * Set information for modal window and call function to show it
+   */
   async sendMessagePublic(context, payload) {
     let response
     let alert
-    console.log('context')
-    console.log(context)
     try {
       response = await this.$axios.post('/api/message/public-archery', payload)
-      console.log('response')
-      console.log(response)
       alert = {
         status: true,
         title: 'Vaše rezervace byla zaznamenána',
@@ -15,7 +15,6 @@ export default {
           'Děkujeme za váš zájem o lekci lukostřelby pro veřejnost. Následně vás bude kontaktovat trenér s dalšími informacemi',
       }
     } catch (err) {
-      console.log('rerror')
       console.log(err)
       alert = {
         status: false,
@@ -28,17 +27,20 @@ export default {
     context.dispatch('modals/showModal', alert, { root: true })
   },
 
+  /*
+   * Send message to backend from form which is on section course for begginers
+   * Set information for modal window and call function to show it
+   */
   async sendMessageStart(context, payload) {
     let response
     let alert
     try {
       response = await this.$axios.post('/api/message/start-course', payload)
-      console.log(response)
       alert = {
         status: true,
         title: 'Vaše rezervace byla zaznamenána',
         message:
-          'Děkujeme za váš zájem o jurz lukostřelby pro začátečníky. Následně vás bude kontaktovat trenér s dalšími informacemi',
+          'Děkujeme za váš zájem o kurz lukostřelby pro začátečníky. Následně vás bude kontaktovat trenér s dalšími informacemi',
       }
     } catch (err) {
       console.log(err)
@@ -52,13 +54,30 @@ export default {
     context.dispatch('modals/showModal', alert, { root: true })
   },
 
+  /*
+   * Send message to backend from form which is on contact page
+   * Set information for modal window and call function to show it
+   */
   async sendMessageContact(context, payload) {
     let response
+    let alert
     try {
       response = await this.$axios.post('/api/message/contact', payload)
-      console.log(response)
+      alert = {
+        status: true,
+        title: 'Vaše zpráva byla zaznamenána',
+        message: 'Děkujeme za váši zprávu. Odpovíme Vám v následujících dnech.',
+      }
     } catch (err) {
       console.log(err)
+      alert = {
+        status: false,
+        title: 'Špatná data ve formuláři',
+        message:
+          'Do kontaktního formuláře jste vyplnil/a špatná data, zkuste to prosím znovu.',
+      }
     }
+
+    context.dispatch('modals/showModal', alert, { root: true })
   },
 }

@@ -1,4 +1,5 @@
 <template>
+  <!-- information about course -->
   <article>
     <h3>{{ info.title }}</h3>
     <div v-html="$md.render(`${info.body}`)"></div>

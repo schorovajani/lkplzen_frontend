@@ -1,4 +1,7 @@
 export default {
+  /*
+   * Get members from backend
+   */
   async loadMembers(context) {
     let response
     try {
@@ -9,6 +12,9 @@ export default {
     context.commit('setMembers', response.data)
   },
 
+  /*
+   * Get coaches populated with member type and its profile
+   */
   async loadCoaches(context) {
     const qs = require('qs')
     const query = qs.stringify(
@@ -29,6 +35,9 @@ export default {
     context.commit('setCoaches', response.data)
   },
 
+  /*
+   * Get committee members populated with member type and its profile
+   */
   async loadCommittee(context) {
     const qs = require('qs')
     const query = qs.stringify(
@@ -43,7 +52,6 @@ export default {
     let response
     try {
       response = await this.$axios.$get(`/api/committees?${query}`)
-      // console.log(response)
     } catch (err) {
       console.log(err)
     }
@@ -51,6 +59,9 @@ export default {
     context.commit('setCommittee', response.data)
   },
 
+  /*
+   * Get league teams populated with member type and its profile
+   */
   async loadLeague(context) {
     const qs = require('qs')
     const query = qs.stringify(
@@ -68,7 +79,6 @@ export default {
     } catch (err) {
       console.log(err)
     }
-    // console.log(response)
     context.commit('setLeague', response.data)
   },
 }

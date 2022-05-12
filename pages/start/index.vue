@@ -1,6 +1,9 @@
 <template>
   <main>
+    <!-- intro -->
     <PagesHead title="Jak začít s lukostřelbou" image="start.jpg" />
+
+    <!-- section with questions and answers -->
     <section class="page-faq">
       <div class="page-faq-item">
         <div class="question">
@@ -94,6 +97,8 @@
         </div>
       </div>
     </section>
+
+    <!-- information about public archery and reservation form -->
     <section id="public-archery" class="page-section">
       <div class="page-layout page-cols">
         <PagesForm
@@ -111,6 +116,8 @@
         </PagesCourseInfo>
       </div>
     </section>
+
+    <!-- information how to start membership, about start course and reservation form -->
     <section id="start-membership" class="page-section">
       <div class="page-layout page-cols">
         <div class="page-column">
@@ -153,6 +160,8 @@
         />
       </div>
     </section>
+
+    <!-- information about course for companies -->
     <section id="company-course" class="page-section">
       <div class="page-layout page-cols">
         <div class="page-column">
@@ -165,6 +174,7 @@
         />
       </div>
     </section>
+    <!-- import of modal window -->
     <UiModal />
   </main>
 </template>
@@ -186,6 +196,9 @@ export default {
     },
   },
   methods: {
+    /*
+     * Call function for sending public archery form data
+     */
     async sendPublic(data) {
       console.log('sendpublic')
       const message = {
@@ -194,6 +207,10 @@ export default {
 
       this.$store.dispatch('messages/sendMessagePublic', message)
     },
+
+    /*
+     * Call function for sending start course form data
+     */
     sendStart(data) {
       console.log('sendStart')
       const message = {
@@ -202,6 +219,10 @@ export default {
       this.$store.dispatch('messages/sendMessageStart', message)
     },
   },
+
+  /*
+   * On create state of component, call functions for getting content
+   */
   created() {
     this.$store.dispatch('pages/publicArchery')
     this.$store.dispatch('pages/startMembership')

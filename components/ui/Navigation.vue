@@ -1,4 +1,5 @@
 <template>
+  <!-- main navigation -->
   <nav>
     <div class="nav-desktop">
       <nuxt-link to="/" exact>Domů</nuxt-link>

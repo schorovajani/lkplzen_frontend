@@ -1,6 +1,9 @@
 <template>
   <main>
+    <!-- intro -->
     <PagesHead title="Klub 1.LK Plzeň" image="club.jpg" />
+
+    <!-- information about club -->
     <section id="about-club" class="page-section">
       <div class="page-layout page-cols">
         <article class="page-column">
@@ -69,6 +72,8 @@
         </article>
       </div>
     </section>
+
+    <!-- all people in club and theirs profiles -->
     <section id="club-people" class="page-section page-second">
       <div class="page-layout page-cols">
         <div class="page-column">
@@ -300,6 +305,10 @@ export default {
       this.$store.dispatch('people/loadLeague')
     },
   },
+
+  /*
+   * On create state of component, call functions for getting content
+   */
   created() {
     this.loadMembers()
     this.loadCoaches()

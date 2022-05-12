@@ -1,4 +1,5 @@
 <template>
+  <!-- intro of every page -->
   <div class="head-page">
     <img class="head-img" :src="imageUrl" />
     <h2>{{ title }}</h2>

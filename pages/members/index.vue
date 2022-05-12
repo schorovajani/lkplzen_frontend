@@ -1,6 +1,9 @@
 <template>
   <main>
+    <!-- intro -->
     <PagesHead title="Pro členy" image="start.jpg" />
+
+    <!-- section with calendars -->
     <section id="calendars" class="page-section">
       <div class="page-layout">
         <h3>Kalendáře</h3>
@@ -41,6 +44,8 @@
         </div>
       </div>
     </section>
+
+    <!-- sport camp information for members -->
     <section id="members-camp" class="page-section">
       <div class="page-layout page-cols">
         <div class="page-column">
@@ -52,6 +57,8 @@
         </article>
       </div>
     </section>
+
+    <!-- section with important documents and links -->
     <section id="documents" class="page-section">
       <div class="page-layout page-cols">
         <div class="page-column">
@@ -87,14 +94,16 @@
 export default {
   computed: {
     sportCamp() {
-      console.log(this.$store.getters['pages/sportCamp'])
       return this.$store.getters['pages/sportCamp']
     },
     forMember() {
-      console.log(this.$store.getters['pages/forMember'])
       return this.$store.getters['pages/forMember']
     },
   },
+
+  /*
+   * On create state of component, call two functions for getting content
+   */
   created() {
     this.$store.dispatch('pages/sportCamp')
     this.$store.dispatch('pages/forMember')

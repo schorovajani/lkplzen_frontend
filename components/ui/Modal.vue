@@ -1,4 +1,5 @@
 <template>
+  <!-- modal window -->
   <div class="modal" @click="hideModal" v-if="isVisible">
     <div class="modal-info">
       <div class="modal-content">

@@ -1,5 +1,6 @@
 <template>
   <main>
+    <!-- introduction -->
     <section class="hero">
       <img src="~/assets/photos/theme-photo.jpg" alt="theme-photo" />
       <div class="hero-text">
@@ -21,6 +22,8 @@
         </a>
       </div>
     </section>
+
+    <!-- short information about club -->
     <section id="home-club">
       <div class="page-cols">
         <article class="column">
@@ -54,6 +57,8 @@
         </div>
       </div>
     </section>
+
+    <!-- short information about club -->
     <section id="home-archery">
       <div class="page-cols" id="archery">
         <div class="column">
@@ -105,21 +110,27 @@
         </article>
       </div>
     </section>
+
+    <!-- slider with profiles -->
     <section id="people" class="homepage-section">
       <h3>Lidé v klubu</h3>
       <HomepageSlider v-if="profiles" :profiles="profiles" />
       <p v-else>Nebyly nalezeny žádné profily</p>
     </section>
+
+    <!-- tree cards of posts -->
     <section id="posts" class="homepage-section">
       <h3>Aktuality</h3>
       <HomepagePostList v-if="posts" :posts="posts" />
       <div v-if="posts" class="page-button-div">
-        <nuxt-link class="page-button" tag="button" to="/competetions/posts"
-          >Více aktualit</nuxt-link
-        >
+        <nuxt-link class="page-button" tag="button" to="/competetions/posts">
+          Více aktualit
+        </nuxt-link>
       </div>
       <p v-else>Nebyly nalezeny žádné aktuality</p>
     </section>
+
+    <!-- main partners -->
     <section id="partners" class="homepage-section">
       <h3>Podporují nás</h3>
       <HomepagePartners />
@@ -129,9 +140,6 @@
 
 <script>
 export default {
-  data() {
-    return {}
-  },
   computed: {
     profiles() {
       return this.$store.getters['profiles/homepageProfiles']
@@ -140,6 +148,9 @@ export default {
       return this.$store.getters['posts/posts']
     },
   },
+  /*
+   * On create state of component, call two functions for getting content
+   */
   created() {
     this.$store.dispatch('profiles/getHomepageProfiles')
     this.$store.dispatch('posts/getPosts')
@@ -253,7 +264,6 @@ export default {
     align-self: flex-start;
     width: 85%;
     margin: auto;
-    //padding-bottom: 4rem;
   }
 }
 
@@ -264,8 +274,6 @@ export default {
   div {
     width: 85%;
     margin: auto;
-    // padding: 0 4rem;
-    //text-align: end;
   }
 }
 

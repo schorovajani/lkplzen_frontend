@@ -1,5 +1,6 @@
 <template>
   <footer>
+    <!-- footer content -->
     <div class="footer-main">
       <div class="footer-col footer-box">
         <h3>Kontakt</h3>
@@ -152,6 +153,8 @@
         </div>
       </div>
     </div>
+
+    <!-- small footer under -->
     <div class="footer-little">
       <a href="">sitemap</a>
       <a href="">admin</a>

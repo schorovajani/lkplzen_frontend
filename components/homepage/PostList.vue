@@ -1,4 +1,5 @@
 <template>
+  <!-- posts on homepage -->
   <div class="posts-container">
     <Post
       v-for="post in shortPosts"

@@ -1,12 +1,17 @@
 <template>
   <main>
+    <!-- intro -->
     <PagesHead title="Partneři" image="partners.jpg" />
+
+    <!-- start information of page -->
     <section class="partners-intro">
       <span
         >Všech našich partnerů si nesmírně vážíme a bez nich by se nám
         sportovalo o něco hůře. Děkujeme!</span
       >
     </section>
+
+    <!-- sections with partners -->
     <section class="partners-cols">
       <div class="shop-col">
         <h3>Partnerský shop</h3>

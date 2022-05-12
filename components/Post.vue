@@ -1,4 +1,5 @@
 <template>
+  <!-- post card -->
   <div class="post">
     <div class="post-thumb">
       <img :src="photoURL" />
@@ -22,11 +23,18 @@ export default {
     photo: String,
   },
   computed: {
+    /*
+     * Cut body text
+     */
     shortBody() {
       return this.body.length > 150
         ? this.body.slice(0, 150) + '...'
         : this.body
     },
+
+    /*
+     * Retrive photo url, if is not exists, return random photo
+     */
     photoURL() {
       if (this.photo) {
         return `${this.$axios.defaults.baseURL}${this.photo}`

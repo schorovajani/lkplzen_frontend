@@ -10,7 +10,7 @@
 
 https://lkplzen.vercel.app/
 
-Its not a final product, some pages is not complete. If some sections on homepage is not loaded, please wait a few seconds a reload page. Backend is deployed on free server and its very slow.
+Its not a final product, some pages is not complete. If some sections on homepage is not loaded, please wait a few seconds and reload page. Backend is deployed on free server and its very slow.
 
 ## Build Setup
 
